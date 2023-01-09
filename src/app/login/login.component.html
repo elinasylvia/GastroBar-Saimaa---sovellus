@@ -1,0 +1,23 @@
+<div class="container">
+    <form [formGroup]="registrationForm" (ngSubmit)="login()">
+
+        <h2>Gastro Bar Saimaa Staff login</h2>
+
+        <!--email, reactive form-->
+        <mat-form-field class="field-full-width">
+            <input matInput placeholder="email" formControlName="email">
+            <mat-error *ngIf="email?.hasError('required')">Enter your email</mat-error>
+            <mat-error *ngIf="email?.hasError('email')">Must be valid email</mat-error>
+        </mat-form-field>
+
+        <!--password-->
+        <mat-form-field class="field-full-width">
+            <input matInput placeholder="password" formControlName="password" type="password">
+            <mat-error *ngIf="password?.hasError('required')">Enter your password</mat-error>
+        </mat-form-field>
+
+        <button type="submit" mat-raised-button color="accent" [disabled]="registrationForm.invalid"
+            (click)="login()">Login</button>
+
+    </form>
+</div>

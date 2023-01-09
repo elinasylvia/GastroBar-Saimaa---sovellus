@@ -1,0 +1,25 @@
+<h2>Tervetuloa!</h2>
+<h3>Kirjoita pöydässä lukeva 3-numeroinen koodi</h3>
+
+<div class="container-fluid">
+    <form (ngSubmit)="onSubmit()" [formGroup]="form">
+        <div class="row">
+            <div class="form-group" *ngFor="let input of formInput;  index as i">
+                <input #formRow type="text" formControlName="{{input}}" class="form-control" maxlength="1"
+                    (keyup)="keyUpEvent($event, i)">
+            </div>
+        </div>
+        <button type="submit" mat-raised-button color="accent" [disabled]="form.invalid">Submit</button>
+    </form>
+</div>
+
+<!-- vanha normi inputilla:
+<form [formGroup]="codeForm" (ngSubmit)="onSubmit()">
+
+    <mat-form-field class="field-full-width">
+        <input matInput placeholder="write code here" formControlName="code">
+    </mat-form-field>
+
+    <button type="submit" mat-raised-button color="accent" [disabled]="codeForm.invalid">Submit</button>
+</form>
+-->
