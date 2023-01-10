@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-// multi inputtia varten
-import { ViewChildren, ElementRef } from '@angular/core';
+// vanhaa multi inputtia varten
+// import { ViewChildren, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-welcome',
@@ -10,29 +10,72 @@ import { ViewChildren, ElementRef } from '@angular/core';
 })
 export class WelcomeComponent implements OnInit {
 
-  // multi inputtia varten
   form: FormGroup;
-  formInput = ['input1', 'input2', 'input3'];
-  @ViewChildren('formRow') rows: any;
 
-  // vanha:
-  // codeForm: FormGroup;
+  // vanhaa multi inputtia varten:
+  // formInput = ['input1', 'input2', 'input3'];
+  // @ViewChildren('formRow') rows: any;
 
   constructor() {
-    // multi inputtia varten
-    this.form = this.toFormGroup(this.formInput);
+    // vanhaa multi inputtia varten:
+    // this.form = this.toFormGroup(this.formInput);
 
-    /* vanha:
-    this.codeForm = new FormGroup({
-      code: new FormControl("", [
+    this.form = new FormGroup({
+      txt1: new FormControl("", [
+        Validators.required
+      ]),
+      txt2: new FormControl("", [
+        Validators.required
+      ]),
+      txt3: new FormControl("", [
         Validators.required
       ])
-    });*/
-
+    });
   }
 
   ngOnInit(): void {
   }
+
+  get txt1() {
+    return this.form.get('txt1');
+  }
+
+  get txt2() {
+    return this.form.get('txt2');
+  }
+
+  get txt3() {
+    return this.form.get('txt3');
+  }
+
+  onSubmit() {
+    // multi inputille
+    var givenCode = this.form.value.txt1 + this.form.value.txt2 + this.form.value.txt3;
+    // tarkastetaan oliko se joku oikeista koodeista
+    if (givenCode === "234" || givenCode === "987" || givenCode === "563" || givenCode === "796")
+      console.log('Table code is: ' + givenCode);
+    // tyhjennys toimii
+    this.form.reset();
+  }
+
+  // multi inputin toimintalogiikkaa
+  move(e: any, p: any, c: any, n: any) {
+    var length = c.value.length;
+    var maxlength = c.getAttribute('maxlength');
+    if (length == maxlength) {
+      if (n != "") {
+        n.focus();
+      }
+    }
+    if (e.key == "Backspace") {
+      if (p != "") {
+        p.focus();
+      }
+
+    }
+  }
+
+  /* vanhaa multi inputtia varten:
 
   // multi inputille
   toFormGroup(elements: any) {
@@ -56,21 +99,6 @@ export class WelcomeComponent implements OnInit {
       this.rows._results[pos].nativeElement.focus();
     }
   }
-
-
-
-  onSubmit() {
-    // testausta siita miten saataisiin koodi myos ostoskoriin
-    /* vanha:
-    if (this.codeForm.value.code === "563") {
-      console.log('Table code is: ' + this.codeForm.value.code);
-    }*/
-
-    // multi inputille
-    // ei toimi
-    console.log('Table code is: ' + this.form);
-    // tyhjennys toimii
-    this.form.reset();
-  }
+*/
 
 }
