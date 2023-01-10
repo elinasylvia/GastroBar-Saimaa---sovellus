@@ -15,7 +15,6 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 
 import { environment } from 'src/environments/environment';
-import { ChooseSideComponent } from './choose-side/choose-side.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 
 
@@ -24,7 +23,6 @@ import { WelcomeComponent } from './welcome/welcome.component';
   declarations: [
     AppComponent,
     LoginComponent,
-    ChooseSideComponent,
     WelcomeComponent
   ],
   imports: [
