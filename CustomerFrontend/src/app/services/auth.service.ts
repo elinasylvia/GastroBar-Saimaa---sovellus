@@ -25,7 +25,7 @@ export class AuthService {
     return this.afAuth.signInWithEmailAndPassword(email, passwrd)
       .then(result => {
         this.userEmail.next(email);
-        this.router.navigate(['side']); // mennaan seuraavalle sivulle eli choose side komponenttiin
+        this.router.navigate(['welcome']); // mennaan seuraavalle sivulle eli welcome komponenttiin
       })
       .catch(function (error) {
         var errorCode = error.code;
