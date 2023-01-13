@@ -6,4 +6,9 @@ import { Injectable } from '@angular/core';
 export class LogincodeService {
 
   constructor() { }
+
+  onSubmit(e: any) {
+    // kirjoitettu koodi saadaan tänne jos se täsmää oikeisiin
+    console.log(e);
+  }
 }
