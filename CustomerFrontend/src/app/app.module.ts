@@ -16,6 +16,7 @@ import { LoginComponent } from './login/login.component';
 
 import { environment } from 'src/environments/environment';
 import { WelcomeComponent } from './welcome/welcome.component';
+import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 
 
 
@@ -23,7 +24,8 @@ import { WelcomeComponent } from './welcome/welcome.component';
   declarations: [
     AppComponent,
     LoginComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    ShoppingCartComponent
   ],
   imports: [
     BrowserModule,
