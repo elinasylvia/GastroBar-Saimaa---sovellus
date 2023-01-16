@@ -14,6 +14,7 @@ export class TestiComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.loadItems();
   }
 
   loadItems(): void {
@@ -22,10 +23,6 @@ export class TestiComponent implements OnInit {
       (data => {
         this.itemData = data;
         console.log('itemData: ' + this.itemData);
-      }, err => {
-        console.log('Service unavailable');
-      }, () => {
-        console.log('COMPLETE................');
       });
   }
 }

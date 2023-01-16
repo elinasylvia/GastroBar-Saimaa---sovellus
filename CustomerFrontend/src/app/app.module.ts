@@ -12,6 +12,7 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
+import { MatListModule } from '@angular/material/list';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -43,7 +44,8 @@ import { TestiComponent } from './testi/testi.component';
     ReactiveFormsModule,
     MatInputModule,
     MatButtonModule,
-    HttpClientModule
+    HttpClientModule,
+    MatListModule
 
   ],
   providers: [],

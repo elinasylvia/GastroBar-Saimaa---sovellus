@@ -10,7 +10,7 @@ export class ItemService {
   url: any;
 
   constructor(private httpClient: HttpClient) {
-    this.url = "https://localhost:7011/api/items";
+    this.url = "http://localhost:4000/menu";
   }
 
   get(): Observable<any> {
