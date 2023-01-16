@@ -1,2 +1,26 @@
-<p>testi works!</p>
-<p>{{itemData}}</p>
+<p>Yritetaan saada esiin kannasta tietoa</p>
+
+<div class="container">
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Nimi</th>
+                <th>Hinta</th>
+                <th>Alv</th>
+                <th>Calories</th>
+                <th>Description</th>
+                <th>Image</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of itemData">
+                <td><span>{{item.name}}</span></td>
+                <td><span>{{item.price}}</span></td>
+                <td><span>{{item.alv}}</span></td>
+                <td><span>{{item.calories}}</span></td>
+                <td><span>{{item.description}}</span></td>
+                <td><span>{{item.image}}</span></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
