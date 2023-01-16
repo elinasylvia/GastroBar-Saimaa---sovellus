@@ -11,6 +11,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -18,6 +19,7 @@ import { LoginComponent } from './login/login.component';
 import { environment } from 'src/environments/environment';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
+import { TestiComponent } from './testi/testi.component';
 
 
 @NgModule({
@@ -26,6 +28,7 @@ import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
     LoginComponent,
     WelcomeComponent,
     ShoppingCartComponent,
+    TestiComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,6 +43,7 @@ import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
     ReactiveFormsModule,
     MatInputModule,
     MatButtonModule,
+    HttpClientModule
 
   ],
   providers: [],
