@@ -5,10 +5,19 @@ import { Injectable } from '@angular/core';
 })
 export class LogincodeService {
 
-  constructor() { }
+  given: any;
+
+  constructor() {
+  }
 
   onSubmit(e: any) {
     // kirjoitettu koodi saadaan tänne jos se täsmää oikeisiin
-    console.log(e);
+    this.given = e;
+    console.log(this.given);
   }
+
+  getText(): string {
+    return this.given;
+  }
+
 }

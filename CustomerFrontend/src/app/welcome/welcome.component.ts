@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { LogincodeService } from '../services/logincode.service';
+import { Router } from "@angular/router"; // reititin nappuloita varten
 
 // vanhaa multi inputtia varten
 // import { ViewChildren, ElementRef } from '@angular/core';
@@ -8,17 +9,19 @@ import { LogincodeService } from '../services/logincode.service';
 @Component({
   selector: 'app-welcome',
   templateUrl: './welcome.component.html',
-  styleUrls: ['./welcome.component.css']
+  styleUrls: ['./welcome.component.css'],
 })
 export class WelcomeComponent implements OnInit {
 
   form: FormGroup;
 
+  givenCode: any;
+
   // vanhaa multi inputtia varten:
   // formInput = ['input1', 'input2', 'input3'];
   // @ViewChildren('formRow') rows: any;
 
-  constructor(private logincodeService: LogincodeService) {
+  constructor(public router: Router, private logincodeService: LogincodeService) {
     // vanhaa multi inputtia varten:
     // this.form = this.toFormGroup(this.formInput);
 
@@ -51,13 +54,12 @@ export class WelcomeComponent implements OnInit {
   }
 
   onSubmit() {
-    // multi inputille
-    var givenCode = this.form.value.txt1 + this.form.value.txt2 + this.form.value.txt3;
-
+    this.givenCode = this.form.value.txt1 + this.form.value.txt2 + this.form.value.txt3;
     // tarkastetaan oliko se joku oikeista koodeista
-    if (givenCode === "234" || givenCode === "987" || givenCode === "563" || givenCode === "796") {
+    if (this.givenCode === "234" || this.givenCode === "987" || this.givenCode === "563" || this.givenCode === "796") {
       // lähetetään koodi servicelle
-      this.logincodeService.onSubmit(givenCode);
+      this.logincodeService.onSubmit(this.givenCode);
+      this.router.navigate(['cart']);
     } else {
       // jos ei ollut oikea
       alert("Wrong code");
