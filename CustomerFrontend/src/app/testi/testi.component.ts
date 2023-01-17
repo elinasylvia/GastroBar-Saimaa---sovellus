@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ItemService } from '../services/item.service';
 import { ItemsService } from '../api/services';
-import { ItemDto } from '../api/models';
 
 @Component({
   selector: 'app-testi',
