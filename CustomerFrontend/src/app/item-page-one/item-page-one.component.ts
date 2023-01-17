@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ItemService } from '../services/item.service';
+import { Router } from "@angular/router"; // reititin nappuloita varten
+import { LogincodeService } from '../services/logincode.service'; // haetaan loginissa annettu koodi
 
 @Component({
   selector: 'app-item-page-one',
@@ -10,10 +12,17 @@ export class ItemPageOneComponent implements OnInit {
 
   itemData: any;
 
-  constructor(public itemService: ItemService) { }
+  // mikä oli alussa annettu koodi
+  given: any;
+
+  constructor(public itemService: ItemService, public router: Router, public logincodeService: LogincodeService) { }
 
   ngOnInit(): void {
+    // lataa yksi tuote aina ngOnInitissä
     this.loadItem();
+
+    // hae alussa annettu koodi
+    this.given = this.logincodeService.getText();
   }
 
   // yhtä hakua varten
@@ -27,4 +36,8 @@ export class ItemPageOneComponent implements OnInit {
       });
   }
 
+  // nappulaa painetaan mennään nyt vaan koriin
+  send(): any {
+    this.router.navigate(['cart']);
+  }
 }

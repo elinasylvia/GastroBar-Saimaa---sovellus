@@ -1,10 +1,29 @@
-<!--yhtä tuotetta varten-->
-<div class="container">
-    <h1>{{itemData.name}}</h1>
-    <h2>{{itemData.price}}</h2>
-    <h3>{{itemData.alv}}</h3>
-    <h3>{{itemData.calories}}</h3>
-    <h3>{{itemData.description}}</h3>
+<h1>Mikä koodi annettiin ostoskorissa</h1>
+<h1>{{given}}</h1>
 
-    <img src="{{itemData.image}}">
+<!--yhtä tuotetta varten-->
+<div class="full-body">
+    <div class="container">
+        <div class="name">
+            <h1>{{itemData.name}}</h1>
+        </div>
+        <div class="price">
+            <h2>{{itemData.price}}</h2>
+            <h2> € / ateria</h2>
+        </div>
+        <div class="alv">
+            <h3>{{itemData.alv}}</h3>
+            <h3> %</h3>
+        </div>
+        <div class="calories">
+            <h3>{{itemData.calories}}</h3>
+            <h3> kcal / annos</h3>
+        </div>
+        <div class="description">
+            <h3>{{itemData.description}}</h3>
+        </div>
+
+        <img id="item-picture" src="{{itemData.image}}">
+    </div>
+    <button type="submit" mat-raised-button color="accent" (click)="send()">Ostoskoriin</button>
 </div>
