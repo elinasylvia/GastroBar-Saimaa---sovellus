@@ -12,6 +12,7 @@ import { MatCardModule } from '@angular/material/card';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -44,6 +45,7 @@ import { MainCourseViewComponent } from './main-course-view/main-course-view.com
     MatInputModule,
     MatButtonModule,
     MatCardModule,
+    MatGridListModule,
 
   ],
   providers: [],
