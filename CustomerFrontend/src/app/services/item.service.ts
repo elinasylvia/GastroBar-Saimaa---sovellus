@@ -17,6 +17,7 @@ export class ItemService {
   }
 
   // itemiä varten on item interface, ja kaikille muille on ne myos api kansiossa
+  // haetaan kaikki tuotteet
   get(): Observable<Item[]> {
     return this.httpClient.get(this.url)
       .pipe(
@@ -26,6 +27,7 @@ export class ItemService {
       );
   }
 
+  // haetaan id:n perusteella mika on urlissa
   getOne(): Observable<Item[]> {
     return this.httpClient.get(this.url2)
       .pipe(
