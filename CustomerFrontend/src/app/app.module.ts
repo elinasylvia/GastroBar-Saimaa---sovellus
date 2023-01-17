@@ -8,6 +8,7 @@ import { FirestoreModule } from '@angular/fire/firestore';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -42,6 +43,7 @@ import { MainCourseViewComponent } from './main-course-view/main-course-view.com
     ReactiveFormsModule,
     MatInputModule,
     MatButtonModule,
+    MatCardModule,
 
   ],
   providers: [],
