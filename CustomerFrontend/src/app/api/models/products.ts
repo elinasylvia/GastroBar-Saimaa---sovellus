@@ -1,7 +1,8 @@
 /* tslint:disable */
 /* eslint-disable */
-export interface BasketDto {
+export interface Products {
   amount?: null | string;
+  id?: number;
   item?: null | string;
   price?: null | string;
 }

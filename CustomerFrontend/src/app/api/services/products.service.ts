@@ -9,12 +9,12 @@ import { RequestBuilder } from '../request-builder';
 import { Observable } from 'rxjs';
 import { map, filter } from 'rxjs/operators';
 
-import { Table } from '../models/table';
+import { Products } from '../models/products';
 
 @Injectable({
   providedIn: 'root',
 })
-export class TablesService extends BaseService {
+export class ProductsService extends BaseService {
   constructor(
     config: ApiConfiguration,
     http: HttpClient
@@ -23,22 +23,22 @@ export class TablesService extends BaseService {
   }
 
   /**
-   * Path part for operation apiTablesGet
+   * Path part for operation apiProductsGet
    */
-  static readonly ApiTablesGetPath = '/api/Tables';
+  static readonly ApiProductsGetPath = '/api/Products';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `apiTablesGet$Plain()` instead.
+   * To access only the response body, use `apiProductsGet$Plain()` instead.
    *
    * This method doesn't expect any request body.
    */
-  apiTablesGet$Plain$Response(params?: {
+  apiProductsGet$Plain$Response(params?: {
     context?: HttpContext
   }
-): Observable<StrictHttpResponse<Array<Table>>> {
+): Observable<StrictHttpResponse<Array<Products>>> {
 
-    const rb = new RequestBuilder(this.rootUrl, TablesService.ApiTablesGetPath, 'get');
+    const rb = new RequestBuilder(this.rootUrl, ProductsService.ApiProductsGetPath, 'get');
     if (params) {
     }
 
@@ -49,39 +49,39 @@ export class TablesService extends BaseService {
     })).pipe(
       filter((r: any) => r instanceof HttpResponse),
       map((r: HttpResponse<any>) => {
-        return r as StrictHttpResponse<Array<Table>>;
+        return r as StrictHttpResponse<Array<Products>>;
       })
     );
   }
 
   /**
    * This method provides access to only to the response body.
-   * To access the full response (for headers, for example), `apiTablesGet$Plain$Response()` instead.
+   * To access the full response (for headers, for example), `apiProductsGet$Plain$Response()` instead.
    *
    * This method doesn't expect any request body.
    */
-  apiTablesGet$Plain(params?: {
+  apiProductsGet$Plain(params?: {
     context?: HttpContext
   }
-): Observable<Array<Table>> {
+): Observable<Array<Products>> {
 
-    return this.apiTablesGet$Plain$Response(params).pipe(
-      map((r: StrictHttpResponse<Array<Table>>) => r.body as Array<Table>)
+    return this.apiProductsGet$Plain$Response(params).pipe(
+      map((r: StrictHttpResponse<Array<Products>>) => r.body as Array<Products>)
     );
   }
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `apiTablesGet$Json()` instead.
+   * To access only the response body, use `apiProductsGet$Json()` instead.
    *
    * This method doesn't expect any request body.
    */
-  apiTablesGet$Json$Response(params?: {
+  apiProductsGet$Json$Response(params?: {
     context?: HttpContext
   }
-): Observable<StrictHttpResponse<Array<Table>>> {
+): Observable<StrictHttpResponse<Array<Products>>> {
 
-    const rb = new RequestBuilder(this.rootUrl, TablesService.ApiTablesGetPath, 'get');
+    const rb = new RequestBuilder(this.rootUrl, ProductsService.ApiProductsGetPath, 'get');
     if (params) {
     }
 
@@ -92,45 +92,45 @@ export class TablesService extends BaseService {
     })).pipe(
       filter((r: any) => r instanceof HttpResponse),
       map((r: HttpResponse<any>) => {
-        return r as StrictHttpResponse<Array<Table>>;
+        return r as StrictHttpResponse<Array<Products>>;
       })
     );
   }
 
   /**
    * This method provides access to only to the response body.
-   * To access the full response (for headers, for example), `apiTablesGet$Json$Response()` instead.
+   * To access the full response (for headers, for example), `apiProductsGet$Json$Response()` instead.
    *
    * This method doesn't expect any request body.
    */
-  apiTablesGet$Json(params?: {
+  apiProductsGet$Json(params?: {
     context?: HttpContext
   }
-): Observable<Array<Table>> {
+): Observable<Array<Products>> {
 
-    return this.apiTablesGet$Json$Response(params).pipe(
-      map((r: StrictHttpResponse<Array<Table>>) => r.body as Array<Table>)
+    return this.apiProductsGet$Json$Response(params).pipe(
+      map((r: StrictHttpResponse<Array<Products>>) => r.body as Array<Products>)
     );
   }
 
   /**
-   * Path part for operation apiTablesPost
+   * Path part for operation apiProductsPost
    */
-  static readonly ApiTablesPostPath = '/api/Tables';
+  static readonly ApiProductsPostPath = '/api/Products';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `apiTablesPost$Plain()` instead.
+   * To access only the response body, use `apiProductsPost$Plain()` instead.
    *
    * This method sends `application/*+json` and handles request body of type `application/*+json`.
    */
-  apiTablesPost$Plain$Response(params?: {
+  apiProductsPost$Plain$Response(params?: {
     context?: HttpContext
-    body?: Table
+    body?: Products
   }
-): Observable<StrictHttpResponse<Table>> {
+): Observable<StrictHttpResponse<Products>> {
 
-    const rb = new RequestBuilder(this.rootUrl, TablesService.ApiTablesPostPath, 'post');
+    const rb = new RequestBuilder(this.rootUrl, ProductsService.ApiProductsPostPath, 'post');
     if (params) {
       rb.body(params.body, 'application/*+json');
     }
@@ -142,41 +142,41 @@ export class TablesService extends BaseService {
     })).pipe(
       filter((r: any) => r instanceof HttpResponse),
       map((r: HttpResponse<any>) => {
-        return r as StrictHttpResponse<Table>;
+        return r as StrictHttpResponse<Products>;
       })
     );
   }
 
   /**
    * This method provides access to only to the response body.
-   * To access the full response (for headers, for example), `apiTablesPost$Plain$Response()` instead.
+   * To access the full response (for headers, for example), `apiProductsPost$Plain$Response()` instead.
    *
    * This method sends `application/*+json` and handles request body of type `application/*+json`.
    */
-  apiTablesPost$Plain(params?: {
+  apiProductsPost$Plain(params?: {
     context?: HttpContext
-    body?: Table
+    body?: Products
   }
-): Observable<Table> {
+): Observable<Products> {
 
-    return this.apiTablesPost$Plain$Response(params).pipe(
-      map((r: StrictHttpResponse<Table>) => r.body as Table)
+    return this.apiProductsPost$Plain$Response(params).pipe(
+      map((r: StrictHttpResponse<Products>) => r.body as Products)
     );
   }
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `apiTablesPost$Json()` instead.
+   * To access only the response body, use `apiProductsPost$Json()` instead.
    *
    * This method sends `application/*+json` and handles request body of type `application/*+json`.
    */
-  apiTablesPost$Json$Response(params?: {
+  apiProductsPost$Json$Response(params?: {
     context?: HttpContext
-    body?: Table
+    body?: Products
   }
-): Observable<StrictHttpResponse<Table>> {
+): Observable<StrictHttpResponse<Products>> {
 
-    const rb = new RequestBuilder(this.rootUrl, TablesService.ApiTablesPostPath, 'post');
+    const rb = new RequestBuilder(this.rootUrl, ProductsService.ApiProductsPostPath, 'post');
     if (params) {
       rb.body(params.body, 'application/*+json');
     }
@@ -188,46 +188,46 @@ export class TablesService extends BaseService {
     })).pipe(
       filter((r: any) => r instanceof HttpResponse),
       map((r: HttpResponse<any>) => {
-        return r as StrictHttpResponse<Table>;
+        return r as StrictHttpResponse<Products>;
       })
     );
   }
 
   /**
    * This method provides access to only to the response body.
-   * To access the full response (for headers, for example), `apiTablesPost$Json$Response()` instead.
+   * To access the full response (for headers, for example), `apiProductsPost$Json$Response()` instead.
    *
    * This method sends `application/*+json` and handles request body of type `application/*+json`.
    */
-  apiTablesPost$Json(params?: {
+  apiProductsPost$Json(params?: {
     context?: HttpContext
-    body?: Table
+    body?: Products
   }
-): Observable<Table> {
+): Observable<Products> {
 
-    return this.apiTablesPost$Json$Response(params).pipe(
-      map((r: StrictHttpResponse<Table>) => r.body as Table)
+    return this.apiProductsPost$Json$Response(params).pipe(
+      map((r: StrictHttpResponse<Products>) => r.body as Products)
     );
   }
 
   /**
-   * Path part for operation apiTablesIdGet
+   * Path part for operation apiProductsIdGet
    */
-  static readonly ApiTablesIdGetPath = '/api/Tables/{id}';
+  static readonly ApiProductsIdGetPath = '/api/Products/{id}';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `apiTablesIdGet$Plain()` instead.
+   * To access only the response body, use `apiProductsIdGet$Plain()` instead.
    *
    * This method doesn't expect any request body.
    */
-  apiTablesIdGet$Plain$Response(params: {
+  apiProductsIdGet$Plain$Response(params: {
     id: number;
     context?: HttpContext
   }
-): Observable<StrictHttpResponse<Table>> {
+): Observable<StrictHttpResponse<Products>> {
 
-    const rb = new RequestBuilder(this.rootUrl, TablesService.ApiTablesIdGetPath, 'get');
+    const rb = new RequestBuilder(this.rootUrl, ProductsService.ApiProductsIdGetPath, 'get');
     if (params) {
       rb.path('id', params.id, {});
     }
@@ -239,41 +239,41 @@ export class TablesService extends BaseService {
     })).pipe(
       filter((r: any) => r instanceof HttpResponse),
       map((r: HttpResponse<any>) => {
-        return r as StrictHttpResponse<Table>;
+        return r as StrictHttpResponse<Products>;
       })
     );
   }
 
   /**
    * This method provides access to only to the response body.
-   * To access the full response (for headers, for example), `apiTablesIdGet$Plain$Response()` instead.
+   * To access the full response (for headers, for example), `apiProductsIdGet$Plain$Response()` instead.
    *
    * This method doesn't expect any request body.
    */
-  apiTablesIdGet$Plain(params: {
+  apiProductsIdGet$Plain(params: {
     id: number;
     context?: HttpContext
   }
-): Observable<Table> {
+): Observable<Products> {
 
-    return this.apiTablesIdGet$Plain$Response(params).pipe(
-      map((r: StrictHttpResponse<Table>) => r.body as Table)
+    return this.apiProductsIdGet$Plain$Response(params).pipe(
+      map((r: StrictHttpResponse<Products>) => r.body as Products)
     );
   }
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `apiTablesIdGet$Json()` instead.
+   * To access only the response body, use `apiProductsIdGet$Json()` instead.
    *
    * This method doesn't expect any request body.
    */
-  apiTablesIdGet$Json$Response(params: {
+  apiProductsIdGet$Json$Response(params: {
     id: number;
     context?: HttpContext
   }
-): Observable<StrictHttpResponse<Table>> {
+): Observable<StrictHttpResponse<Products>> {
 
-    const rb = new RequestBuilder(this.rootUrl, TablesService.ApiTablesIdGetPath, 'get');
+    const rb = new RequestBuilder(this.rootUrl, ProductsService.ApiProductsIdGetPath, 'get');
     if (params) {
       rb.path('id', params.id, {});
     }
@@ -285,47 +285,47 @@ export class TablesService extends BaseService {
     })).pipe(
       filter((r: any) => r instanceof HttpResponse),
       map((r: HttpResponse<any>) => {
-        return r as StrictHttpResponse<Table>;
+        return r as StrictHttpResponse<Products>;
       })
     );
   }
 
   /**
    * This method provides access to only to the response body.
-   * To access the full response (for headers, for example), `apiTablesIdGet$Json$Response()` instead.
+   * To access the full response (for headers, for example), `apiProductsIdGet$Json$Response()` instead.
    *
    * This method doesn't expect any request body.
    */
-  apiTablesIdGet$Json(params: {
+  apiProductsIdGet$Json(params: {
     id: number;
     context?: HttpContext
   }
-): Observable<Table> {
+): Observable<Products> {
 
-    return this.apiTablesIdGet$Json$Response(params).pipe(
-      map((r: StrictHttpResponse<Table>) => r.body as Table)
+    return this.apiProductsIdGet$Json$Response(params).pipe(
+      map((r: StrictHttpResponse<Products>) => r.body as Products)
     );
   }
 
   /**
-   * Path part for operation apiTablesIdPut
+   * Path part for operation apiProductsIdPut
    */
-  static readonly ApiTablesIdPutPath = '/api/Tables/{id}';
+  static readonly ApiProductsIdPutPath = '/api/Products/{id}';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `apiTablesIdPut()` instead.
+   * To access only the response body, use `apiProductsIdPut()` instead.
    *
    * This method sends `application/*+json` and handles request body of type `application/*+json`.
    */
-  apiTablesIdPut$Response(params: {
+  apiProductsIdPut$Response(params: {
     id: number;
     context?: HttpContext
-    body?: Table
+    body?: Products
   }
 ): Observable<StrictHttpResponse<void>> {
 
-    const rb = new RequestBuilder(this.rootUrl, TablesService.ApiTablesIdPutPath, 'put');
+    const rb = new RequestBuilder(this.rootUrl, ProductsService.ApiProductsIdPutPath, 'put');
     if (params) {
       rb.path('id', params.id, {});
       rb.body(params.body, 'application/*+json');
@@ -345,40 +345,40 @@ export class TablesService extends BaseService {
 
   /**
    * This method provides access to only to the response body.
-   * To access the full response (for headers, for example), `apiTablesIdPut$Response()` instead.
+   * To access the full response (for headers, for example), `apiProductsIdPut$Response()` instead.
    *
    * This method sends `application/*+json` and handles request body of type `application/*+json`.
    */
-  apiTablesIdPut(params: {
+  apiProductsIdPut(params: {
     id: number;
     context?: HttpContext
-    body?: Table
+    body?: Products
   }
 ): Observable<void> {
 
-    return this.apiTablesIdPut$Response(params).pipe(
+    return this.apiProductsIdPut$Response(params).pipe(
       map((r: StrictHttpResponse<void>) => r.body as void)
     );
   }
 
   /**
-   * Path part for operation apiTablesIdDelete
+   * Path part for operation apiProductsIdDelete
    */
-  static readonly ApiTablesIdDeletePath = '/api/Tables/{id}';
+  static readonly ApiProductsIdDeletePath = '/api/Products/{id}';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `apiTablesIdDelete()` instead.
+   * To access only the response body, use `apiProductsIdDelete()` instead.
    *
    * This method doesn't expect any request body.
    */
-  apiTablesIdDelete$Response(params: {
+  apiProductsIdDelete$Response(params: {
     id: number;
     context?: HttpContext
   }
 ): Observable<StrictHttpResponse<void>> {
 
-    const rb = new RequestBuilder(this.rootUrl, TablesService.ApiTablesIdDeletePath, 'delete');
+    const rb = new RequestBuilder(this.rootUrl, ProductsService.ApiProductsIdDeletePath, 'delete');
     if (params) {
       rb.path('id', params.id, {});
     }
@@ -397,17 +397,17 @@ export class TablesService extends BaseService {
 
   /**
    * This method provides access to only to the response body.
-   * To access the full response (for headers, for example), `apiTablesIdDelete$Response()` instead.
+   * To access the full response (for headers, for example), `apiProductsIdDelete$Response()` instead.
    *
    * This method doesn't expect any request body.
    */
-  apiTablesIdDelete(params: {
+  apiProductsIdDelete(params: {
     id: number;
     context?: HttpContext
   }
 ): Observable<void> {
 
-    return this.apiTablesIdDelete$Response(params).pipe(
+    return this.apiProductsIdDelete$Response(params).pipe(
       map((r: StrictHttpResponse<void>) => r.body as void)
     );
   }

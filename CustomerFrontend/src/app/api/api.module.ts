@@ -7,7 +7,7 @@ import { ApiConfiguration, ApiConfigurationParams } from './api-configuration';
 import { BasketsService } from './services/baskets.service';
 import { ItemsService } from './services/items.service';
 import { OrdersService } from './services/orders.service';
-import { TablesService } from './services/tables.service';
+import { ProductsService } from './services/products.service';
 import { WeatherForecastService } from './services/weather-forecast.service';
 
 /**
@@ -21,7 +21,7 @@ import { WeatherForecastService } from './services/weather-forecast.service';
     BasketsService,
     ItemsService,
     OrdersService,
-    TablesService,
+    ProductsService,
     WeatherForecastService,
     ApiConfiguration
   ],

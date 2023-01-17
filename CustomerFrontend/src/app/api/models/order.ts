@@ -1,10 +1,10 @@
 /* tslint:disable */
 /* eslint-disable */
-import { BasketDto } from './basket-dto';
+import { Products } from './products';
 export interface Order {
   id?: number;
   orderTime?: string;
-  orders?: null | Array<BasketDto>;
+  orders?: null | Array<Products>;
   status?: null | string;
   tableNumber?: null | string;
 }
