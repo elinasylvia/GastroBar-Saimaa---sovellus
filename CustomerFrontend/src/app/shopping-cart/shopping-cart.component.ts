@@ -27,7 +27,7 @@ export class ShoppingCartComponent implements OnInit {
 
   // haetaan servicestä ja kannasta
   loadItems(): void {
-    this.logincodeService.getTable()
+    this.itemService.getTable()
       .subscribe
       (data => {
         this.itemData = data;
