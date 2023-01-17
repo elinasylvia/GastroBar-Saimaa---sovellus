@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, map } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { Item } from '../api/models';
+import { Basket, BasketDto, Item } from '../api/models';
 import { LogincodeService } from './logincode.service';
 
 @Injectable({
@@ -42,11 +42,11 @@ export class ItemService {
   }
 
   // haetaan ostoskoriin tuotteet pöytänumeron perusteella
-  getTable(): Observable<Item[]> {
+  getTable(): Observable<BasketDto[]> {
     return this.httpClient.get(this.basketUrl)
       .pipe(
         map(response => {
-          return response as Item[];
+          return response as BasketDto[];
         })
       );
   }
