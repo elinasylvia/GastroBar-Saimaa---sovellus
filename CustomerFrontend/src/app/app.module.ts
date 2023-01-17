@@ -21,6 +21,7 @@ import { environment } from 'src/environments/environment';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { TestiComponent } from './testi/testi.component';
+import { ItemPageOneComponent } from './item-page-one/item-page-one.component';
 
 
 @NgModule({
@@ -30,6 +31,7 @@ import { TestiComponent } from './testi/testi.component';
     WelcomeComponent,
     ShoppingCartComponent,
     TestiComponent,
+    ItemPageOneComponent,
   ],
   imports: [
     BrowserModule,
