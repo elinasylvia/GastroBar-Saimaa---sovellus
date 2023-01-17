@@ -9,14 +9,25 @@ import { Item } from '../api/models';
 export class ItemService {
 
   url: any;
+  url2: any;
 
   constructor(private httpClient: HttpClient) {
     this.url = "https://localhost:7011/api/items/";
+    this.url2 = "https://localhost:7011/api/items/1";
   }
 
   // itemiä varten on item interface, ja kaikille muille on ne myos api kansiossa
   get(): Observable<Item[]> {
     return this.httpClient.get(this.url)
+      .pipe(
+        map(response => {
+          return response as Item[];
+        })
+      );
+  }
+
+  getOne(): Observable<Item[]> {
+    return this.httpClient.get(this.url2)
       .pipe(
         map(response => {
           return response as Item[];
