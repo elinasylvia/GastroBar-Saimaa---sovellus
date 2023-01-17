@@ -22,6 +22,7 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { TestiComponent } from './testi/testi.component';
 import { ItemPageOneComponent } from './item-page-one/item-page-one.component';
+import { StaffOrdersComponent } from './staff-orders/staff-orders.component';
 
 
 @NgModule({
@@ -32,6 +33,7 @@ import { ItemPageOneComponent } from './item-page-one/item-page-one.component';
     ShoppingCartComponent,
     TestiComponent,
     ItemPageOneComponent,
+    StaffOrdersComponent,
   ],
   imports: [
     BrowserModule,
