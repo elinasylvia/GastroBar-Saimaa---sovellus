@@ -48,12 +48,6 @@ export class ItemPageOneComponent implements OnInit {
       });
   }
 
-  // nappulaa painetaan mennään nyt vaan koriin
-  send(): any {
-    this.router.navigate(['cart']);
-  }
-
-
   // inputin hakua varten (post)
   change(event: any) {
     this.inputValue = event.target.value;
@@ -71,6 +65,7 @@ export class ItemPageOneComponent implements OnInit {
     }
     this.itemService.create(basket).subscribe(() => {
       console.log('Basket saved');
+      this.router.navigate(['cart']);
     });
   }
 }
