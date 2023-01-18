@@ -18,7 +18,8 @@ export class ItemPageOneComponent implements OnInit {
   given: any;
 
   // tuodaan esiin aika
-  // ei toimi vielä tämänhetkiselle ajalle mutta antaa lisätä kantaan
+  // kannassa joku häiriö kun näyttää kaikki ajat samanlaisina
+  // antaa kuitenkin lisätä kantaan tällä
   current_date: Date = new Date();
 
   constructor(public itemService: ItemService, public router: Router, public logincodeService: LogincodeService) {
