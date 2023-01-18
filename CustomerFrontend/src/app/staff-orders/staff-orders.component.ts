@@ -9,11 +9,18 @@ import { OrdersService } from '../services/orders.service';
 export class StaffOrdersComponent implements OnInit {
 
   // gettiä varten
-  itemData: any;
+  itemDataOne: any;
+  itemDataTwo: any;
+  itemDataThree: any;
+  itemDataFour: any;
 
   constructor(public ordersService: OrdersService) { }
 
   ngOnInit(): void {
+    this.loadOrdersOne();
+    this.loadOrdersTwo();
+    this.loadOrdersThree();
+    this.loadOrdersFour();
   }
 
   // haetaan servicestä ja kannasta
@@ -21,8 +28,8 @@ export class StaffOrdersComponent implements OnInit {
     this.ordersService.getTableOne()
       .subscribe
       (data => {
-        this.itemData = data;
-        console.log(this.itemData);
+        this.itemDataOne = data;
+        console.log(this.itemDataOne);
         // this.itemData[0], this.itemData[1], this.itemData[2]
       });
   }
@@ -32,8 +39,8 @@ export class StaffOrdersComponent implements OnInit {
     this.ordersService.getTableTwo()
       .subscribe
       (data => {
-        this.itemData = data;
-        console.log(this.itemData);
+        this.itemDataTwo = data;
+        console.log(this.itemDataTwo);
         // this.itemData[0], this.itemData[1], this.itemData[2]
       });
   }
@@ -43,8 +50,8 @@ export class StaffOrdersComponent implements OnInit {
     this.ordersService.getTableThree()
       .subscribe
       (data => {
-        this.itemData = data;
-        console.log(this.itemData);
+        this.itemDataThree = data;
+        console.log(this.itemDataThree);
         // this.itemData[0], this.itemData[1], this.itemData[2]
       });
   }
@@ -54,8 +61,8 @@ export class StaffOrdersComponent implements OnInit {
     this.ordersService.getTableFour()
       .subscribe
       (data => {
-        this.itemData = data;
-        console.log(this.itemData);
+        this.itemDataFour = data;
+        console.log(this.itemDataFour);
         // this.itemData[0], this.itemData[1], this.itemData[2]
       });
   }

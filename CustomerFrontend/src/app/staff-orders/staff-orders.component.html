@@ -1,6 +1,84 @@
 <h1>Tilaukset</h1>
-<h2>Pöytä 1</h2>
-<h2>Pöytä 2</h2>
-<h2>Pöytä 3</h2>
-<h2>Pöytä 4</h2>
-<h2>Pöytä 5</h2>
+
+<h2>Pöytä 234</h2>
+<p>get/orders/table/tablenumber</p>
+<!--1-->
+<div class="container">
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Tablenumber</th>
+                <th>Tilaukset</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of itemDataOne">
+                <td><span>{{item.tableNumber}}</span></td>
+                <td><span>{{item.orders}}</span></td>
+                <td><span>{{item.status}}</span></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<!--2-->
+<h2>Pöytä 563</h2>
+<div class="container">
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Tablenumber</th>
+                <th>Tilaukset</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of itemDataTwo">
+                <td><span>{{item.tableNumber}}</span></td>
+                <td><span>{{item.orders}}</span></td>
+                <td><span>{{item.status}}</span></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<!--3-->
+<h2>Pöytä 987</h2>
+<div class="container">
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Tablenumber</th>
+                <th>Tilaukset</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of itemDataThree">
+                <td><span>{{item.tableNumber}}</span></td>
+                <td><span>{{item.orders}}</span></td>
+                <td><span>{{item.status}}</span></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<!--4-->
+<h2>Pöytä 796</h2>
+<div class="container">
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Tablenumber</th>
+                <th>Tilaukset</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of itemDataFour">
+                <td><span>{{item.tableNumber}}</span></td>
+                <td><span>{{item.orders}}</span></td>
+                <td><span>{{item.status}}</span></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
