@@ -3,6 +3,7 @@ import { ItemService } from '../services/item.service';
 import { Router } from "@angular/router"; // reititin nappuloita varten
 import { LogincodeService } from '../services/logincode.service'; // haetaan loginissa annettu koodi
 import { Basket } from '../api/models';
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-item-page-one',
@@ -16,19 +17,11 @@ export class ItemPageOneComponent implements OnInit {
   // mikä oli alussa annettu koodi
   given: any;
 
-  // yritetään nyt tehä siitä formia tms POST
-  sentBasket: any;
+  // tuodaan esiin aika
+  // ei toimi vielä tämänhetkiselle ajalle mutta antaa lisätä kantaan
+  current_date: Date = new Date();
 
   constructor(public itemService: ItemService, public router: Router, public logincodeService: LogincodeService) {
-    // post pohdiskelua
-    /*
-    this.sentBasket = new FormGroup({
-      tableNumber: new FormControl(),
-      item: new FormControl(),
-      price: new FormControl(),
-      amount: new FormControl(),
-      OrderTime: new FormControl(),
-    });*/
   }
 
   ngOnInit(): void {
@@ -56,15 +49,16 @@ export class ItemPageOneComponent implements OnInit {
   }
 
 
-  // yritetään postata kantaan tää tieto
-  // huom. tässä on haettu item. ja tällä esimerkillä yritetään vaa luoda item
-  // mutta haluattaisiin luoda basket
+  // tablenumber, item, price toimii kaikki
+  // huom. tablenumber pitää näkyä korissa että post onnistuu
+  // amount pitäisi vielä saada html puolelta
   addItemToBasket(): void {
     let basket: Basket = {
-      tableNumber: this.sentBasket.get('itemData.tablenumber')!.value,
-      item: this.sentBasket.get('itemData.name')!.value,
-      price: this.sentBasket.get('itemData.price')!.value,
-      amount: this.sentBasket.get('itemData.amount')!.value
+      tableNumber: this.given,
+      item: this.itemData.name,
+      price: this.itemData.price,
+      amount: "21",
+      orderTime: this.current_date.toISOString()
     }
     this.itemService.create(basket).subscribe(() => {
       console.log('Basket saved');
