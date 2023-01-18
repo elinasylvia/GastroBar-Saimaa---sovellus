@@ -17,10 +17,12 @@
 
     <h3>{{itemData.description}}</h3>
 
-    <h3>1</h3>
-
-    <h3>2022-02-02</h3>
+    <label>
+        <span>Lukumaara</span>
+        <input (change)="change($event)">
+    </label>
 
     <img id="item-picture" src="{{itemData.image}}">
+
+    <button type="submit" mat-raised-button color="accent" (click)="addItemToBasket()">Ostoskoriin</button>
 </div>
-<button type="submit" mat-raised-button color="accent" (click)="addItemToBasket()">Ostoskoriin</button>

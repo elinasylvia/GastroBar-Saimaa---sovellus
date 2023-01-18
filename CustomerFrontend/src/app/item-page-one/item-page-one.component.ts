@@ -22,7 +22,11 @@ export class ItemPageOneComponent implements OnInit {
   // antaa kuitenkin lisätä kantaan tällä
   current_date: Date = new Date();
 
+  // mihin saadaan inputin arvo
+  inputValue: any;
+
   constructor(public itemService: ItemService, public router: Router, public logincodeService: LogincodeService) {
+
   }
 
   ngOnInit(): void {
@@ -50,15 +54,19 @@ export class ItemPageOneComponent implements OnInit {
   }
 
 
-  // tablenumber, item, price toimii kaikki
-  // huom. tablenumber pitää näkyä korissa että post onnistuu
-  // amount pitäisi vielä saada html puolelta
+  // inputin hakua varten (post)
+  change(event: any) {
+    this.inputValue = event.target.value;
+  }
+
+  // POST toimii
   addItemToBasket(): void {
+    console.log(this.inputValue);
     let basket: Basket = {
       tableNumber: this.given,
       item: this.itemData.name,
       price: this.itemData.price,
-      amount: "21",
+      amount: this.inputValue,
       orderTime: this.current_date.toISOString()
     }
     this.itemService.create(basket).subscribe(() => {
