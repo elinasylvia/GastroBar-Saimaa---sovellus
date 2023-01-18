@@ -14,10 +14,19 @@ export class ItemService {
 
   basketUrl: any;
 
+  // postia varten
+  basketPost: any;
+
+  // deleteä varten
+  val: any;
+
   constructor(private httpClient: HttpClient, private logincodeService: LogincodeService) {
     this.url = "https://localhost:7011/api/items/";
     this.url2 = "https://localhost:7011/api/items/1";
     this.basketUrl = "https://localhost:7011/api/baskets/table/" + this.logincodeService.getText();
+    // postia varten
+    this.basketPost = "https://localhost:7011/api/baskets/";
+
   }
 
   // itemiä varten on item interface, ja kaikille muille on ne myos api kansiossa
@@ -50,5 +59,33 @@ export class ItemService {
         })
       );
   }
+
+  // poistoa varten (ostoskori)
+  // haetaan sen id:n arvo mitä siellä korissa on
+  onSubmit(e: any) {
+    this.val = e;
+  }
+
+  // poistoa varten (ostoskorissa)
+  deleteById(id: any): Observable<Basket[]> {
+    return this.httpClient.delete(this.basketPost + this.val)
+      .pipe(
+        map(response => {
+          return response as Basket[];
+        })
+      );
+  }
+
+  // tehään tälle oma basket service jos tää onnistuu, mutta käytetään sitä nyt ensin täältä
+  // tässä on nyt myös sama. että tää haluaa vaan luoda samanlaisen itemin mikä on jo täällä sivulla
+  create(basket: Basket): Observable<Basket> {
+    return this.httpClient.post(this.basketPost, basket)
+      .pipe(
+        map(response => {
+          return response as Basket;
+        })
+      );
+  }
+
 }
 
