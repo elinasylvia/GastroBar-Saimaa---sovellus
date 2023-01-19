@@ -3,12 +3,13 @@
         <mat-card class="maincourse-card">
             <mat-card-header>
                 <div mat-card-avatar class="maincourse-header-image"></div>
-                <mat-card-title>Boston hampurilainen</mat-card-title>
+                <mat-card-title>{{product.name}}</mat-card-title>
                 <mat-card-subtitle>Pääruoat</mat-card-subtitle>
             </mat-card-header>
             <img mat-card-image src={{product.imageUrl}} alt="Photo of boston burger" />
             <mat-card-content>
                 <p>
+                    {{product.price}}
                     {{product.description}}
                 </p>
             </mat-card-content>
