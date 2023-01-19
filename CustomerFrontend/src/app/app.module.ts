@@ -8,9 +8,11 @@ import { FirestoreModule } from '@angular/fire/firestore';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -18,6 +20,7 @@ import { LoginComponent } from './login/login.component';
 import { environment } from 'src/environments/environment';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
+import { MainCourseViewComponent } from './main-course-view/main-course-view.component';
 
 
 @NgModule({
@@ -26,6 +29,7 @@ import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
     LoginComponent,
     WelcomeComponent,
     ShoppingCartComponent,
+    MainCourseViewComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,6 +44,8 @@ import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
     ReactiveFormsModule,
     MatInputModule,
     MatButtonModule,
+    MatCardModule,
+    MatGridListModule,
 
   ],
   providers: [],
