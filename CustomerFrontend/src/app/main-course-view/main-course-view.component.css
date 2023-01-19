@@ -6,6 +6,15 @@
 }
 
 .maincourse-header-image {
-    background-image: url('https://images.unsplash.com/photo-1600688640154-9619e002df30?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=627&q=80');
+    background-image: url('./../../assets/images/bostonburger.jpg');
     background-size: cover;
+}
+
+.card-container-right {
+    display: inline;
+    float: right;
+}
+
+.mat-card-title:not(:first-child) {
+    margin-top: -30px;
 }
