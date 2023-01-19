@@ -21,6 +21,7 @@ import { environment } from 'src/environments/environment';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { MainCourseViewComponent } from './main-course-view/main-course-view.component';
+import { CategoryViewComponent } from './category-view/category-view.component';
 
 
 @NgModule({
@@ -30,6 +31,7 @@ import { MainCourseViewComponent } from './main-course-view/main-course-view.com
     WelcomeComponent,
     ShoppingCartComponent,
     MainCourseViewComponent,
+    CategoryViewComponent,
   ],
   imports: [
     BrowserModule,

@@ -59,7 +59,7 @@ export class WelcomeComponent implements OnInit {
     if (this.givenCode === "234" || this.givenCode === "987" || this.givenCode === "563" || this.givenCode === "796") {
       // lähetetään koodi servicelle
       this.logincodeService.onSubmit(this.givenCode);
-      this.router.navigate(['cart']);
+      this.router.navigate(['categoryview']);
     } else {
       // jos ei ollut oikea
       alert("Wrong code");
