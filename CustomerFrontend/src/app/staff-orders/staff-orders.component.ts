@@ -86,9 +86,10 @@ export class StaffOrdersComponent implements OnInit {
   updateOrderStatus(id?: number): void {
     // kopsattu basket deletestä, pitäisi muokata jotenkin putiksi
 
-    /*if (id == null) {
+    if (id == null) {
       return;
     }
+    /*
     // lähetetään nyt tällä tavoin tuo id:n arvo servicelle
     this.itemService.onSubmit(id);
 
