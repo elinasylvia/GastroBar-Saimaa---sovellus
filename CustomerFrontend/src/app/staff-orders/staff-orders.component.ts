@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { map } from 'rxjs';
 import { OrdersService } from '../services/orders.service';
+import { Products } from '../api/models';
 
 @Component({
   selector: 'app-staff-orders',
@@ -8,13 +10,16 @@ import { OrdersService } from '../services/orders.service';
 })
 export class StaffOrdersComponent implements OnInit {
 
+  resres: any;
+
   // gettiä varten
   itemDataOne: any;
   itemDataTwo: any;
   itemDataThree: any;
   itemDataFour: any;
 
-  constructor(public ordersService: OrdersService) { }
+  constructor(public ordersService: OrdersService) {
+  }
 
   ngOnInit(): void {
     this.loadOrdersOne();
@@ -28,11 +33,22 @@ export class StaffOrdersComponent implements OnInit {
     this.ordersService.getTableOne()
       .subscribe
       (data => {
-        this.itemDataOne = data;
-        console.log(this.itemDataOne);
+        this.itemDataOne = data
+        // console.log(this.itemDataOne);
         // this.itemData[0], this.itemData[1], this.itemData[2]
       });
   }
+
+  /*
+  loadOrdersOne(): void {
+    this.ordersService.getTableOne()
+      .subscribe
+      (data => {
+        this.itemDataOne = data
+        // console.log(this.itemDataOne);
+        // this.itemData[0], this.itemData[1], this.itemData[2]
+      });
+  }*/
 
   // haetaan servicestä ja kannasta
   loadOrdersTwo(): void {

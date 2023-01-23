@@ -1,85 +1,145 @@
-<h1>Tilaukset</h1>
-<p>get/orders/table/tablenumber</p>
-<p>huom. null korjattava</p>
+<div class="big-container">
+    <h1>Tilaukset</h1>
+    <p>get/orders/table/tablenumber</p>
 
-<h2>Pöytä 234</h2>
-<!--1-->
-<div class="container">
-    <table class="table table-bordered table-striped">
-        <thead>
-            <tr>
-                <th>Tablenumber</th>
-                <th>Tilaukset</th>
-                <th>Status</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let item of itemDataOne">
-                <td><span>{{item.tableNumber}}</span></td>
-                <td><span>{{item.orders}}</span></td>
-                <td><span>{{item.status}}</span></td>
-            </tr>
-        </tbody>
-    </table>
-</div>
+    <hr>
 
-<!--2-->
-<h2>Pöytä 563</h2>
-<div class="container">
-    <table class="table table-bordered table-striped">
-        <thead>
-            <tr>
-                <th>Tablenumber</th>
-                <th>Tilaukset</th>
-                <th>Status</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let item of itemDataTwo">
-                <td><span>{{item.tableNumber}}</span></td>
-                <td><span>{{item.orders}}</span></td>
-                <td><span>{{item.status}}</span></td>
-            </tr>
-        </tbody>
-    </table>
-</div>
-<!--3-->
-<h2>Pöytä 987</h2>
-<div class="container">
-    <table class="table table-bordered table-striped">
-        <thead>
-            <tr>
-                <th>Tablenumber</th>
-                <th>Tilaukset</th>
-                <th>Status</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let item of itemDataThree">
-                <td><span>{{item.tableNumber}}</span></td>
-                <td><span>{{item.orders}}</span></td>
-                <td><span>{{item.status}}</span></td>
-            </tr>
-        </tbody>
-    </table>
-</div>
-<!--4-->
-<h2>Pöytä 796</h2>
-<div class="container">
-    <table class="table table-bordered table-striped">
-        <thead>
-            <tr>
-                <th>Tablenumber</th>
-                <th>Tilaukset</th>
-                <th>Status</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let item of itemDataFour">
-                <td><span>{{item.tableNumber}}</span></td>
-                <td><span>{{item.orders}}</span></td>
-                <td><span>{{item.status}}</span></td>
-            </tr>
-        </tbody>
-    </table>
-</div>
+    <h2>Pöytä 234</h2>
+    <!--1-->
+    <div class="container">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Tablenumber</th>
+                    <th>Pöydän Status</th>
+                    <th>Tilaus</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of itemDataOne">
+                    <!--huom id poistettu-->
+                    <td>{{item.tableNumber}}</td>
+                    <td>{{item.status}}</td>
+
+                    <span *ngFor="let orders of item.orders">
+                        <td>
+                            <h3>Tuote</h3>{{orders.item}}
+                        </td>
+                        <td>
+                            <h3>Määrä</h3>{{orders.amount}} kpl
+                        </td>
+                        <td>
+                            <h3>Hinta</h3> {{orders.price}} €
+                        </td>
+                        <hr>
+                    </span>
+                    <hr id="hooar">
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!--2-->
+    <h2>Pöytä 563</h2>
+    <div class="container">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Tablenumber</th>
+                    <th>Pöydän Status</th>
+                    <th>Tilaus</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of itemDataTwo">
+                    <!--huom id poistettu-->
+                    <td>{{item.tableNumber}}</td>
+                    <td>{{item.status}}</td>
+
+                    <span *ngFor="let orders of item.orders">
+                        <td>
+                            <h3>Tuote</h3>{{orders.item}}
+                        </td>
+                        <td>
+                            <h3>Määrä</h3>{{orders.amount}} kpl
+                        </td>
+                        <td>
+                            <h3>Hinta</h3> {{orders.price}} €
+                        </td>
+                        <hr>
+                    </span>
+                    <hr id="hooar">
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!--3-->
+    <h2>Pöytä 987</h2>
+    <div class="container">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Tablenumber</th>
+                    <th>Pöydän Status</th>
+                    <th>Tilaus</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of itemDataThree">
+                    <!--huom id poistettu-->
+                    <td>{{item.tableNumber}}</td>
+                    <td>{{item.status}}</td>
+
+                    <span *ngFor="let orders of item.orders">
+                        <td>
+                            <h3>Tuote</h3>{{orders.item}}
+                        </td>
+                        <td>
+                            <h3>Määrä</h3>{{orders.amount}} kpl
+                        </td>
+                        <td>
+                            <h3>Hinta</h3> {{orders.price}} €
+                        </td>
+                        <hr>
+                    </span>
+                    <hr id="hooar">
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!--4-->
+    <h2>Pöytä 796</h2>
+    <div class="container">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Tablenumber</th>
+                    <th>Pöydän Status</th>
+                    <th>Tilaus</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of itemDataFour">
+                    <!--huom id poistettu-->
+                    <td>{{item.tableNumber}}</td>
+                    <td>{{item.status}}</td>
+
+                    <span *ngFor="let orders of item.orders">
+                        <td>
+                            <h3>Tuote</h3>{{orders.item}}
+                        </td>
+                        <td>
+                            <h3>Määrä</h3>{{orders.amount}} kpl
+                        </td>
+                        <td>
+                            <h3>Hinta</h3> {{orders.price}} €
+                        </td>
+                        <hr>
+                    </span>
+                    <hr id="hooar">
+                </tr>
+            </tbody>
+        </table>
+    </div>

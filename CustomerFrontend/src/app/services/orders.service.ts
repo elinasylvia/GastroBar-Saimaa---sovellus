@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { OrderDto } from '../api/models';
-
+import { OrderDto, Order } from '../api/models';
 @Injectable({
   providedIn: 'root'
 })
@@ -13,12 +12,16 @@ export class OrdersService {
   urlTableThree: any;
   urlTableFour: any;
 
+  ordersUrl: any;
+
   constructor(private httpClient: HttpClient) {
     // haetaan kaikki sen koodin perusteella
     this.urlTableOne = "https://localhost:7011/api/orders/table/234";
     this.urlTableTwo = "https://localhost:7011/api/orders/table/563";
     this.urlTableThree = "https://localhost:7011/api/orders/table/987";
     this.urlTableFour = "https://localhost:7011/api/orders/table/796";
+
+    this.ordersUrl = "https://localhost:7011/api/orders/";
   }
 
   // haetaan ostoskoriin tuotteet pöytänumeron perusteella
@@ -61,6 +64,17 @@ export class OrdersService {
       .pipe(
         map(response => {
           return response as OrderDto[];
+        })
+      );
+  }
+
+  // orderin luontii, muokattu basketista
+  // ei toimi vielä
+  create(order: Order): Observable<Order> {
+    return this.httpClient.post(this.ordersUrl, order)
+      .pipe(
+        map(response => {
+          return response as Order;
         })
       );
   }
