@@ -8,6 +8,7 @@ import { FirestoreModule } from '@angular/fire/firestore';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -49,8 +50,8 @@ import { StaffOrdersComponent } from './staff-orders/staff-orders.component';
     MatInputModule,
     MatButtonModule,
     HttpClientModule,
-    MatListModule
-
+    MatListModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

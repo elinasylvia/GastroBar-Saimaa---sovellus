@@ -83,4 +83,29 @@ export class StaffOrdersComponent implements OnInit {
       });
   }
 
+  updateOrderStatus(id?: number): void {
+    // kopsattu basket deletestä, pitäisi muokata jotenkin putiksi
+
+    /*if (id == null) {
+      return;
+    }
+    // lähetetään nyt tällä tavoin tuo id:n arvo servicelle
+    this.itemService.onSubmit(id);
+
+    if (confirm("Haluatko varmasti poistaa kohteen ")) {
+      this.itemService.deleteById({ id: id }).subscribe((response: any) => {
+        // console.log(response);
+        this.reload();
+      });
+    }*/
+  }
+
+  // reload tota updatea varten
+  reload(): void {
+    this.loadOrdersOne();
+    this.loadOrdersTwo();
+    this.loadOrdersThree();
+    this.loadOrdersFour();
+  }
+
 }
