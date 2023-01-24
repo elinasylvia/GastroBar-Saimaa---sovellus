@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { OrderDto, Order } from '../api/models';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -14,12 +15,15 @@ export class OrdersService {
 
   ordersUrl: any;
 
+  // deleteä varten
+  val: any;
+
   constructor(private httpClient: HttpClient) {
     // haetaan kaikki sen koodin perusteella
-    this.urlTableOne = "https://localhost:7011/api/orders/table/234";
-    this.urlTableTwo = "https://localhost:7011/api/orders/table/563";
-    this.urlTableThree = "https://localhost:7011/api/orders/table/987";
-    this.urlTableFour = "https://localhost:7011/api/orders/table/796";
+    this.urlTableOne = "https://localhost:7011/api/orders/table/tables/234";
+    this.urlTableTwo = "https://localhost:7011/api/orders/table/tables/563";
+    this.urlTableThree = "https://localhost:7011/api/orders/table/tables/987";
+    this.urlTableFour = "https://localhost:7011/api/orders/table/tables/796";
 
     this.ordersUrl = "https://localhost:7011/api/orders/";
   }
@@ -68,13 +72,30 @@ export class OrdersService {
       );
   }
 
-  // orderin luontii, muokattu basketista
+  // orderin luonti, muokattu basketista
   // ei toimi vielä
   create(order: Order): Observable<Order> {
     return this.httpClient.post(this.ordersUrl, order)
       .pipe(
         map(response => {
           return response as Order;
+        })
+      );
+  }
+
+  // updatea varten (staff puoli)
+  // haetaan sen id:n arvo mitä siellä tilauksessa on
+  onUpdateSubmit(e: any) {
+    this.val = e;
+  }
+
+  // toimii
+  // updatea varten (staff puoli)
+  updateById(id: any, orri: any): Observable<Order[]> {
+    return this.httpClient.put((this.ordersUrl + this.val), orri)
+      .pipe(
+        map(response => {
+          return response as Order[];
         })
       );
   }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { map } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { OrdersService } from '../services/orders.service';
-import { Products } from '../api/models';
+import { Order, Products } from '../api/models';
 
 @Component({
   selector: 'app-staff-orders',
@@ -18,6 +18,9 @@ export class StaffOrdersComponent implements OnInit {
   itemDataThree: any;
   itemDataFour: any;
 
+  current_date: Date = new Date();
+
+
   constructor(public ordersService: OrdersService) {
   }
 
@@ -29,76 +32,138 @@ export class StaffOrdersComponent implements OnInit {
   }
 
   // haetaan servicestä ja kannasta
+  // 1 pöydälle
   loadOrdersOne(): void {
     this.ordersService.getTableOne()
       .subscribe
       (data => {
         this.itemDataOne = data
-        // console.log(this.itemDataOne);
-        // this.itemData[0], this.itemData[1], this.itemData[2]
       });
   }
 
-  /*
-  loadOrdersOne(): void {
-    this.ordersService.getTableOne()
-      .subscribe
-      (data => {
-        this.itemDataOne = data
-        // console.log(this.itemDataOne);
-        // this.itemData[0], this.itemData[1], this.itemData[2]
-      });
-  }*/
-
   // haetaan servicestä ja kannasta
+  // 2 pöydälle
   loadOrdersTwo(): void {
     this.ordersService.getTableTwo()
       .subscribe
       (data => {
         this.itemDataTwo = data;
         console.log(this.itemDataTwo);
-        // this.itemData[0], this.itemData[1], this.itemData[2]
       });
   }
 
   // haetaan servicestä ja kannasta
+  // 3 pöydälle
   loadOrdersThree(): void {
     this.ordersService.getTableThree()
       .subscribe
       (data => {
         this.itemDataThree = data;
         console.log(this.itemDataThree);
-        // this.itemData[0], this.itemData[1], this.itemData[2]
       });
   }
 
   // haetaan servicestä ja kannasta
+  // 4 pöydälle
   loadOrdersFour(): void {
     this.ordersService.getTableFour()
       .subscribe
       (data => {
         this.itemDataFour = data;
         console.log(this.itemDataFour);
-        // this.itemData[0], this.itemData[1], this.itemData[2]
       });
   }
 
+  // muokataan tilauksen status "closed"
+  // 1 pöydälle
   updateOrderStatus(id?: number): void {
-    // kopsattu basket deletestä, pitäisi muokata jotenkin putiksi
-
     if (id == null) {
       return;
     }
-    /*
-    // lähetetään nyt tällä tavoin tuo id:n arvo servicelle
-    this.itemService.onSubmit(id);
+    let orri: Order = {
+      id: id,
+      tableNumber: this.itemDataOne[0].tableNumber,
+      orders: this.itemDataOne[0].orders,
+      orderTime: this.current_date.toISOString(),
+      status: "closed"
+    }
+    console.log("mikä on itemdataone[0].tablenumber: " + this.itemDataOne[0].tableNumber);
 
-    if (confirm("Haluatko varmasti poistaa kohteen ")) {
-      this.itemService.deleteById({ id: id }).subscribe((response: any) => {
-        // console.log(response);
+    this.ordersService.onUpdateSubmit(id);
+    if (confirm("Haluatko merkitä tuotteen valmiiksi ")) {
+      this.ordersService.updateById({ id: id }, orri).subscribe((response: any) => {
         this.reload();
       });
-    }*/
+    }
+  }
+
+  // muokataan tilauksen status "closed"
+  // 2 pöydälle
+  updateOrderStatusTableTwo(id?: number): void {
+    if (id == null) {
+      return;
+    }
+    let orri: Order = {
+      id: id,
+      tableNumber: this.itemDataTwo[0].tableNumber,
+      orders: this.itemDataTwo[0].orders,
+      orderTime: this.current_date.toISOString(),
+      status: "closed"
+    }
+    console.log("mikä on itemdatatwo[0].tablenumber: " + this.itemDataTwo[0].tableNumber);
+
+    this.ordersService.onUpdateSubmit(id);
+    if (confirm("Haluatko merkitä tuotteen valmiiksi ")) {
+      this.ordersService.updateById({ id: id }, orri).subscribe((response: any) => {
+        this.reload();
+      });
+    }
+  }
+
+  // muokataan tilauksen status "closed"
+  // 3 pöydälle
+  updateOrderStatusTableThree(id?: number): void {
+    if (id == null) {
+      return;
+    }
+    let orri: Order = {
+      id: id,
+      tableNumber: this.itemDataThree[0].tableNumber,
+      orders: this.itemDataThree[0].orders,
+      orderTime: this.current_date.toISOString(),
+      status: "closed"
+    }
+    console.log("mikä on itemdatathree[0].tablenumber: " + this.itemDataThree[0].tableNumber);
+
+    this.ordersService.onUpdateSubmit(id);
+    if (confirm("Haluatko merkitä tuotteen valmiiksi ")) {
+      this.ordersService.updateById({ id: id }, orri).subscribe((response: any) => {
+        this.reload();
+      });
+    }
+  }
+
+  // muokataan tilauksen status "closed"
+  // 4 pöydälle
+  updateOrderStatusTableFour(id?: number): void {
+    if (id == null) {
+      return;
+    }
+    let orri: Order = {
+      id: id,
+      tableNumber: this.itemDataFour[0].tableNumber,
+      orders: this.itemDataFour[0].orders,
+      orderTime: this.current_date.toISOString(),
+      status: "closed"
+    }
+    console.log("mikä on itemdatafour[0].tablenumber: " + this.itemDataFour[0].tableNumber);
+
+    this.ordersService.onUpdateSubmit(id);
+    if (confirm("Haluatko merkitä tuotteen valmiiksi ")) {
+      this.ordersService.updateById({ id: id }, orri).subscribe((response: any) => {
+        this.reload();
+      });
+    }
   }
 
   // reload tota updatea varten

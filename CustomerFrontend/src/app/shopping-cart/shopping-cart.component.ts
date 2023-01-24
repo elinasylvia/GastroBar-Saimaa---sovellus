@@ -63,24 +63,13 @@ export class ShoppingCartComponent implements OnInit {
     this.loadItems();
   }
 
-  goBack() {
-    // tähän joku tilaus lähetetty confirmaatio
-
-    // huom. tähän kategoriat
-    this.router.navigate(['item/1']);
-  }
 
   // huom. yritetaan tehda post
-  // eli lähetetään korin sisältö order kantaan
-  // kopsattu tuolta item page > missä se toimii jo
-  // eli tehään siitä order "olio"
   makeOrder(): void {
     let order: Order = {
       // order kentät : id, tablenumber, (products) orders, ordertime, status
       tableNumber: this.given,
-
-      orders: this.itemData, // mikä tää order nyt on
-
+      orders: this.itemData,  // mikä tää order nyt on
       orderTime: this.current_date.toISOString(),
       status: "open" // yritetään nyt laittaa tieto vain tähän
     }

@@ -5,12 +5,13 @@
 
     <hr>
 
-    <h2>Pöytä 234</h2>
     <!--1-->
+    <h2>Pöytä 234</h2>
     <div class="container">
         <table class="table table-bordered table-striped">
             <thead>
                 <tr>
+                    <th>Id</th>
                     <th>Tablenumber</th>
                     <th>Pöydän Status</th>
                     <th>Tilaus</th>
@@ -18,7 +19,7 @@
             </thead>
             <tbody>
                 <tr *ngFor="let item of itemDataOne">
-                    <!--huom id poistettu-->
+                    <td>{{item.id}}</td>
                     <td>{{item.tableNumber}}</td>
                     <td>{{item.status}}</td>
 
@@ -35,7 +36,6 @@
                         <hr>
                     </span>
                     <hr id="hooar">
-                    <!--huom id:tä ei ole nyt täällä-->
                     <td><button mat-fab color="accent"
                             (click)="updateOrderStatus(item.id)"><mat-icon>check</mat-icon></button></td>
                 </tr>
@@ -49,6 +49,7 @@
         <table class="table table-bordered table-striped">
             <thead>
                 <tr>
+                    <th>Id</th>
                     <th>Tablenumber</th>
                     <th>Pöydän Status</th>
                     <th>Tilaus</th>
@@ -56,7 +57,7 @@
             </thead>
             <tbody>
                 <tr *ngFor="let item of itemDataTwo">
-                    <!--huom id poistettu-->
+                    <td>{{item.id}}</td>
                     <td>{{item.tableNumber}}</td>
                     <td>{{item.status}}</td>
 
@@ -75,7 +76,7 @@
                     <hr id="hooar">
                     <!--huom id:tä ei ole nyt täällä-->
                     <td><button mat-fab color="accent"
-                            (click)="updateOrderStatus(item.id)"><mat-icon>check</mat-icon></button></td>
+                            (click)="updateOrderStatusTableTwo(item.id)"><mat-icon>check</mat-icon></button></td>
                 </tr>
             </tbody>
         </table>
@@ -87,6 +88,7 @@
         <table class="table table-bordered table-striped">
             <thead>
                 <tr>
+                    <th>Id</th>
                     <th>Tablenumber</th>
                     <th>Pöydän Status</th>
                     <th>Tilaus</th>
@@ -94,7 +96,7 @@
             </thead>
             <tbody>
                 <tr *ngFor="let item of itemDataThree">
-                    <!--huom id poistettu-->
+                    <td>{{item.id}}</td>
                     <td>{{item.tableNumber}}</td>
                     <td>{{item.status}}</td>
 
@@ -113,7 +115,7 @@
                     <hr id="hooar">
                     <!--huom id:tä ei ole nyt täällä-->
                     <td><button mat-fab color="accent"
-                            (click)="updateOrderStatus(item.id)"><mat-icon>check</mat-icon></button></td>
+                            (click)="updateOrderStatusTableThree(item.id)"><mat-icon>check</mat-icon></button></td>
                 </tr>
             </tbody>
         </table>
@@ -125,6 +127,7 @@
         <table class="table table-bordered table-striped">
             <thead>
                 <tr>
+                    <th>Id</th>
                     <th>Tablenumber</th>
                     <th>Pöydän Status</th>
                     <th>Tilaus</th>
@@ -132,7 +135,7 @@
             </thead>
             <tbody>
                 <tr *ngFor="let item of itemDataFour">
-                    <!--huom id poistettu-->
+                    <td>{{item.id}}</td>
                     <td>{{item.tableNumber}}</td>
                     <td>{{item.status}}</td>
 
@@ -151,7 +154,7 @@
                     <hr id="hooar">
                     <!--huom id:tä ei ole nyt täällä-->
                     <td><button mat-fab color="accent"
-                            (click)="updateOrderStatus(item.id)"><mat-icon>check</mat-icon></button></td>
+                            (click)="updateOrderStatusTableFour(item.id)"><mat-icon>check</mat-icon></button></td>
                 </tr>
             </tbody>
         </table>
