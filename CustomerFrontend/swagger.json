@@ -768,6 +768,54 @@
         }
       }
     },
+    "/api/Orders/table/tables/{tablenumber}": {
+      "get": {
+        "tags": [
+          "Orders"
+        ],
+        "parameters": [
+          {
+            "name": "tablenumber",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/OrderDTO"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/OrderDTO"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/OrderDTO"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/Products": {
       "get": {
         "tags": [
@@ -998,7 +1046,7 @@
       "Basket": {
         "type": "object",
         "properties": {
-          "id": {
+          "productId": {
             "type": "integer",
             "format": "int64"
           },
@@ -1021,6 +1069,10 @@
           "orderTime": {
             "type": "string",
             "format": "date-time"
+          },
+          "status": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -1028,6 +1080,10 @@
       "BasketDTO": {
         "type": "object",
         "properties": {
+          "productId": {
+            "type": "integer",
+            "format": "int64"
+          },
           "item": {
             "type": "string",
             "nullable": true
@@ -1037,6 +1093,10 @@
             "nullable": true
           },
           "amount": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
             "type": "string",
             "nullable": true
           }
@@ -1164,6 +1224,10 @@
             "type": "integer",
             "format": "int64"
           },
+          "productId": {
+            "type": "integer",
+            "format": "int64"
+          },
           "item": {
             "type": "string",
             "nullable": true
@@ -1173,6 +1237,10 @@
             "nullable": true
           },
           "amount": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
             "type": "string",
             "nullable": true
           }

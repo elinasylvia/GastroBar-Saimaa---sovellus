@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { OrderDto, Order } from '../api/models';
+import { OrderDto, Order, Basket } from '../api/models';
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +14,7 @@ export class OrdersService {
   urlTableFour: any;
 
   ordersUrl: any;
+  basketsUrl: any;
 
   // deleteä varten
   val: any;
@@ -26,6 +27,8 @@ export class OrdersService {
     this.urlTableFour = "https://localhost:7011/api/orders/table/tables/796";
 
     this.ordersUrl = "https://localhost:7011/api/orders/";
+
+    this.basketsUrl = "https://localhost:7011/api/baskets/";
   }
 
   // haetaan ostoskoriin tuotteet pöytänumeron perusteella
@@ -96,6 +99,17 @@ export class OrdersService {
       .pipe(
         map(response => {
           return response as Order[];
+        })
+      );
+  }
+
+  // updatea varten (ostoskori - basket puoli !!) toimii yksittäiselle tuotteelle
+  updateByProuductId(id: any, basketti: any): Observable<Basket[]> {
+    // huom. tässä käytetään myös tota this.val jos se ei enää toimi
+    return this.httpClient.put((this.basketsUrl + this.val), basketti)
+      .pipe(
+        map(response => {
+          return response as Basket[];
         })
       );
   }

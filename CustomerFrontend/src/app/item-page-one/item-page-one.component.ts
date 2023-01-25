@@ -17,6 +17,7 @@ export class ItemPageOneComponent implements OnInit {
   // mikä oli alussa annettu koodi
   given: any;
 
+  stat: any;
   // tuodaan esiin aika
   // kannassa joku häiriö kun näyttää kaikki ajat samanlaisina
   // antaa kuitenkin lisätä kantaan tällä
@@ -26,7 +27,7 @@ export class ItemPageOneComponent implements OnInit {
   inputValue: any;
 
   constructor(public itemService: ItemService, public router: Router, public logincodeService: LogincodeService) {
-
+    this.stat = "basket";
   }
 
   ngOnInit(): void {
@@ -61,7 +62,8 @@ export class ItemPageOneComponent implements OnInit {
       item: this.itemData.name,
       price: this.itemData.price,
       amount: this.inputValue,
-      orderTime: this.current_date.toISOString()
+      orderTime: this.current_date.toISOString(),
+      status: this.stat
     }
     this.itemService.create(basket).subscribe(() => {
       console.log('Basket saved');

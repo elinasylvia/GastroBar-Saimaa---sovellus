@@ -5,4 +5,6 @@ export interface Products {
   id?: number;
   item?: null | string;
   price?: null | string;
+  productId?: number;
+  status?: null | string;
 }

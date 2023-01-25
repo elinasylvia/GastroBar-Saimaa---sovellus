@@ -41,7 +41,7 @@ export class ItemsService extends BaseService {
   apiItemsGet$Plain$Response(params?: {
     context?: HttpContext
   }
-  ): Observable<StrictHttpResponse<Array<ItemDto>>> {
+): Observable<StrictHttpResponse<Array<ItemDto>>> {
 
     const rb = new RequestBuilder(this.rootUrl, ItemsService.ApiItemsGetPath, 'get');
     if (params) {
@@ -72,7 +72,7 @@ export class ItemsService extends BaseService {
   apiItemsGet$Plain(params?: {
     context?: HttpContext
   }
-  ): Observable<Array<ItemDto>> {
+): Observable<Array<ItemDto>> {
 
     return this.apiItemsGet$Plain$Response(params).pipe(
       map((r: StrictHttpResponse<Array<ItemDto>>) => r.body as Array<ItemDto>)
@@ -92,7 +92,7 @@ export class ItemsService extends BaseService {
   apiItemsGet$Json$Response(params?: {
     context?: HttpContext
   }
-  ): Observable<StrictHttpResponse<Array<ItemDto>>> {
+): Observable<StrictHttpResponse<Array<ItemDto>>> {
 
     const rb = new RequestBuilder(this.rootUrl, ItemsService.ApiItemsGetPath, 'get');
     if (params) {
@@ -123,7 +123,7 @@ export class ItemsService extends BaseService {
   apiItemsGet$Json(params?: {
     context?: HttpContext
   }
-  ): Observable<Array<ItemDto>> {
+): Observable<Array<ItemDto>> {
 
     return this.apiItemsGet$Json$Response(params).pipe(
       map((r: StrictHttpResponse<Array<ItemDto>>) => r.body as Array<ItemDto>)
@@ -149,7 +149,7 @@ export class ItemsService extends BaseService {
     context?: HttpContext
     body?: Item
   }
-  ): Observable<StrictHttpResponse<Item>> {
+): Observable<StrictHttpResponse<Item>> {
 
     const rb = new RequestBuilder(this.rootUrl, ItemsService.ApiItemsPostPath, 'post');
     if (params) {
@@ -182,7 +182,7 @@ export class ItemsService extends BaseService {
     context?: HttpContext
     body?: Item
   }
-  ): Observable<Item> {
+): Observable<Item> {
 
     return this.apiItemsPost$Plain$Response(params).pipe(
       map((r: StrictHttpResponse<Item>) => r.body as Item)
@@ -203,7 +203,7 @@ export class ItemsService extends BaseService {
     context?: HttpContext
     body?: Item
   }
-  ): Observable<StrictHttpResponse<Item>> {
+): Observable<StrictHttpResponse<Item>> {
 
     const rb = new RequestBuilder(this.rootUrl, ItemsService.ApiItemsPostPath, 'post');
     if (params) {
@@ -236,7 +236,7 @@ export class ItemsService extends BaseService {
     context?: HttpContext
     body?: Item
   }
-  ): Observable<Item> {
+): Observable<Item> {
 
     return this.apiItemsPost$Json$Response(params).pipe(
       map((r: StrictHttpResponse<Item>) => r.body as Item)
@@ -262,7 +262,7 @@ export class ItemsService extends BaseService {
     id: number;
     context?: HttpContext
   }
-  ): Observable<StrictHttpResponse<ItemDto>> {
+): Observable<StrictHttpResponse<ItemDto>> {
 
     const rb = new RequestBuilder(this.rootUrl, ItemsService.ApiItemsIdGetPath, 'get');
     if (params) {
@@ -295,7 +295,7 @@ export class ItemsService extends BaseService {
     id: number;
     context?: HttpContext
   }
-  ): Observable<ItemDto> {
+): Observable<ItemDto> {
 
     return this.apiItemsIdGet$Plain$Response(params).pipe(
       map((r: StrictHttpResponse<ItemDto>) => r.body as ItemDto)
@@ -316,7 +316,7 @@ export class ItemsService extends BaseService {
     id: number;
     context?: HttpContext
   }
-  ): Observable<StrictHttpResponse<ItemDto>> {
+): Observable<StrictHttpResponse<ItemDto>> {
 
     const rb = new RequestBuilder(this.rootUrl, ItemsService.ApiItemsIdGetPath, 'get');
     if (params) {
@@ -349,7 +349,7 @@ export class ItemsService extends BaseService {
     id: number;
     context?: HttpContext
   }
-  ): Observable<ItemDto> {
+): Observable<ItemDto> {
 
     return this.apiItemsIdGet$Json$Response(params).pipe(
       map((r: StrictHttpResponse<ItemDto>) => r.body as ItemDto)
@@ -376,7 +376,7 @@ export class ItemsService extends BaseService {
     context?: HttpContext
     body?: Item
   }
-  ): Observable<StrictHttpResponse<void>> {
+): Observable<StrictHttpResponse<void>> {
 
     const rb = new RequestBuilder(this.rootUrl, ItemsService.ApiItemsIdPutPath, 'put');
     if (params) {
@@ -411,7 +411,7 @@ export class ItemsService extends BaseService {
     context?: HttpContext
     body?: Item
   }
-  ): Observable<void> {
+): Observable<void> {
 
     return this.apiItemsIdPut$Response(params).pipe(
       map((r: StrictHttpResponse<void>) => r.body as void)
@@ -437,7 +437,7 @@ export class ItemsService extends BaseService {
     id: number;
     context?: HttpContext
   }
-  ): Observable<StrictHttpResponse<void>> {
+): Observable<StrictHttpResponse<void>> {
 
     const rb = new RequestBuilder(this.rootUrl, ItemsService.ApiItemsIdDeletePath, 'delete');
     if (params) {
@@ -470,7 +470,7 @@ export class ItemsService extends BaseService {
     id: number;
     context?: HttpContext
   }
-  ): Observable<void> {
+): Observable<void> {
 
     return this.apiItemsIdDelete$Response(params).pipe(
       map((r: StrictHttpResponse<void>) => r.body as void)
@@ -496,7 +496,7 @@ export class ItemsService extends BaseService {
     query: string;
     context?: HttpContext
   }
-  ): Observable<StrictHttpResponse<ItemDto>> {
+): Observable<StrictHttpResponse<ItemDto>> {
 
     const rb = new RequestBuilder(this.rootUrl, ItemsService.ApiItemsFoodQueryGetPath, 'get');
     if (params) {
@@ -529,7 +529,7 @@ export class ItemsService extends BaseService {
     query: string;
     context?: HttpContext
   }
-  ): Observable<ItemDto> {
+): Observable<ItemDto> {
 
     return this.apiItemsFoodQueryGet$Plain$Response(params).pipe(
       map((r: StrictHttpResponse<ItemDto>) => r.body as ItemDto)
@@ -550,7 +550,7 @@ export class ItemsService extends BaseService {
     query: string;
     context?: HttpContext
   }
-  ): Observable<StrictHttpResponse<ItemDto>> {
+): Observable<StrictHttpResponse<ItemDto>> {
 
     const rb = new RequestBuilder(this.rootUrl, ItemsService.ApiItemsFoodQueryGetPath, 'get');
     if (params) {
@@ -583,7 +583,7 @@ export class ItemsService extends BaseService {
     query: string;
     context?: HttpContext
   }
-  ): Observable<ItemDto> {
+): Observable<ItemDto> {
 
     return this.apiItemsFoodQueryGet$Json$Response(params).pipe(
       map((r: StrictHttpResponse<ItemDto>) => r.body as ItemDto)
@@ -605,7 +605,7 @@ export class ItemsService extends BaseService {
     query: string;
     context?: HttpContext
   }
-  ): Observable<StrictHttpResponse<ItemDto>> {
+): Observable<StrictHttpResponse<ItemDto>> {
 
     const rb = new RequestBuilder(this.rootUrl, ItemsService.ApiItemsOneQueryGetPath, 'get');
     if (params) {
@@ -634,7 +634,7 @@ export class ItemsService extends BaseService {
     query: string;
     context?: HttpContext
   }
-  ): Observable<ItemDto> {
+): Observable<ItemDto> {
 
     return this.apiItemsOneQueryGet$Plain$Response(params).pipe(
       map((r: StrictHttpResponse<ItemDto>) => r.body as ItemDto)
@@ -651,7 +651,7 @@ export class ItemsService extends BaseService {
     query: string;
     context?: HttpContext
   }
-  ): Observable<StrictHttpResponse<ItemDto>> {
+): Observable<StrictHttpResponse<ItemDto>> {
 
     const rb = new RequestBuilder(this.rootUrl, ItemsService.ApiItemsOneQueryGetPath, 'get');
     if (params) {
@@ -680,7 +680,7 @@ export class ItemsService extends BaseService {
     query: string;
     context?: HttpContext
   }
-  ): Observable<ItemDto> {
+): Observable<ItemDto> {
 
     return this.apiItemsOneQueryGet$Json$Response(params).pipe(
       map((r: StrictHttpResponse<ItemDto>) => r.body as ItemDto)

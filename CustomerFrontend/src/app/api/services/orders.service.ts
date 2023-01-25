@@ -510,4 +510,101 @@ export class OrdersService extends BaseService {
     );
   }
 
+  /**
+   * Path part for operation apiOrdersTableTablesTablenumberGet
+   */
+  static readonly ApiOrdersTableTablesTablenumberGetPath = '/api/Orders/table/tables/{tablenumber}';
+
+  /**
+   * This method provides access to the full `HttpResponse`, allowing access to response headers.
+   * To access only the response body, use `apiOrdersTableTablesTablenumberGet$Plain()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  apiOrdersTableTablesTablenumberGet$Plain$Response(params: {
+    tablenumber: string;
+    context?: HttpContext
+  }
+): Observable<StrictHttpResponse<Array<OrderDto>>> {
+
+    const rb = new RequestBuilder(this.rootUrl, OrdersService.ApiOrdersTableTablesTablenumberGetPath, 'get');
+    if (params) {
+      rb.path('tablenumber', params.tablenumber, {});
+    }
+
+    return this.http.request(rb.build({
+      responseType: 'text',
+      accept: 'text/plain',
+      context: params?.context
+    })).pipe(
+      filter((r: any) => r instanceof HttpResponse),
+      map((r: HttpResponse<any>) => {
+        return r as StrictHttpResponse<Array<OrderDto>>;
+      })
+    );
+  }
+
+  /**
+   * This method provides access to only to the response body.
+   * To access the full response (for headers, for example), `apiOrdersTableTablesTablenumberGet$Plain$Response()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  apiOrdersTableTablesTablenumberGet$Plain(params: {
+    tablenumber: string;
+    context?: HttpContext
+  }
+): Observable<Array<OrderDto>> {
+
+    return this.apiOrdersTableTablesTablenumberGet$Plain$Response(params).pipe(
+      map((r: StrictHttpResponse<Array<OrderDto>>) => r.body as Array<OrderDto>)
+    );
+  }
+
+  /**
+   * This method provides access to the full `HttpResponse`, allowing access to response headers.
+   * To access only the response body, use `apiOrdersTableTablesTablenumberGet$Json()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  apiOrdersTableTablesTablenumberGet$Json$Response(params: {
+    tablenumber: string;
+    context?: HttpContext
+  }
+): Observable<StrictHttpResponse<Array<OrderDto>>> {
+
+    const rb = new RequestBuilder(this.rootUrl, OrdersService.ApiOrdersTableTablesTablenumberGetPath, 'get');
+    if (params) {
+      rb.path('tablenumber', params.tablenumber, {});
+    }
+
+    return this.http.request(rb.build({
+      responseType: 'json',
+      accept: 'text/json',
+      context: params?.context
+    })).pipe(
+      filter((r: any) => r instanceof HttpResponse),
+      map((r: HttpResponse<any>) => {
+        return r as StrictHttpResponse<Array<OrderDto>>;
+      })
+    );
+  }
+
+  /**
+   * This method provides access to only to the response body.
+   * To access the full response (for headers, for example), `apiOrdersTableTablesTablenumberGet$Json$Response()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  apiOrdersTableTablesTablenumberGet$Json(params: {
+    tablenumber: string;
+    context?: HttpContext
+  }
+): Observable<Array<OrderDto>> {
+
+    return this.apiOrdersTableTablesTablenumberGet$Json$Response(params).pipe(
+      map((r: StrictHttpResponse<Array<OrderDto>>) => r.body as Array<OrderDto>)
+    );
+  }
+
 }

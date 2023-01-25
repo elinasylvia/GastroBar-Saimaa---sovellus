@@ -4,7 +4,7 @@ import { ItemService } from '../services/item.service';
 import { BasketsService } from '../api/services';
 import { OrdersService } from '../services/orders.service';
 import { Router } from "@angular/router"; // reititin nappuloita varten
-import { Order, Products } from '../api/models';
+import { Order, Products, Basket } from '../api/models';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -22,9 +22,15 @@ export class ShoppingCartComponent implements OnInit {
   // aika
   current_date: Date = new Date();
 
+  stat: any;
+
+  arrLength: number;
+
   constructor(public router: Router, private ordersService: OrdersService, public logincodeService: LogincodeService, public itemService: ItemService, private basketsService: BasketsService) {
     // annettu koodi haetaan servicen kautta welcome komponentista
     this.given = this.logincodeService.getText();
+    this.stat = "open";
+    this.arrLength = 0;
   }
 
   // ladataan kannasta
@@ -59,10 +65,49 @@ export class ShoppingCartComponent implements OnInit {
     }
   }
 
+  // PUT jokaiselle tuotteelle
+  putBasketProduct(id?: number): void {
+    if (id == null) {
+      return;
+    }
+
+    // tää tulostaa nyt sen pituuden mitä tuol ostoskorissa on 
+    this.arrLength = this.itemData.length - 1;
+
+    console.log("pituus" + this.arrLength);
+    console.log("id on " + id);
+    console.log("tablenumber on " + this.given);
+    console.log("price on " + this.itemData[this.arrLength].price);
+    console.log("amout on " + this.itemData[this.arrLength].amount)
+    console.log("aika on " + this.current_date.toISOString());
+    console.log("status on " + this.stat);
+    console.log("item on" + this.itemData[this.arrLength].item);
+
+    let orri: Basket = {
+      // basket = tablenumber, item, price, amount + nyt sit myös status ja ordertime
+      productId: id,
+      tableNumber: this.given,
+      item: this.itemData[this.arrLength].item, // huom nää menee vielä väärin
+      price: this.itemData[this.arrLength].price,
+      amount: this.itemData[this.arrLength].amount,
+      orderTime: this.current_date.toISOString(),
+      status: this.stat
+    }
+
+    this.ordersService.onUpdateSubmit(id);
+    if (confirm("Haluatko merkitä tuotteen valmiiksi ")) {
+      this.ordersService.updateByProuductId({ id: id }, orri).subscribe((response: any) => {
+        this.reload();
+      });
+    }
+  }
+
   reload(): void {
     this.loadItems();
   }
 
+
+  // order malliluokka huomioiden :
 
   // huom. yritetaan tehda post
   makeOrder(): void {
@@ -84,3 +129,5 @@ export class ShoppingCartComponent implements OnInit {
   }
 
 }
+
+
