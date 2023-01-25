@@ -26,8 +26,7 @@
                 <td><span>{{item.price}}</span></td>
                 <td><span>{{item.amount}}</span></td>
                 <!--<td><span>{{item.status}}</span></td>-->
-                <td><button mat-fab color="accent"
-                        (click)="putBasketProduct(item.productId)"><mat-icon>check</mat-icon></button></td>
+                <td><button mat-fab (click)="putBasketProduct(item.productId)"><mat-icon>check</mat-icon></button></td>
             </tr>
         </tbody>
     </table>

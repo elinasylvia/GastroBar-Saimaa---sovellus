@@ -97,7 +97,8 @@ export class ShoppingCartComponent implements OnInit {
     this.ordersService.onUpdateSubmit(id);
     if (confirm("Haluatko merkitä tuotteen valmiiksi ")) {
       this.ordersService.updateByProuductId({ id: id }, orri).subscribe((response: any) => {
-        this.reload();
+        // huom. tästä pitäisi varmaan poistaa tuo reload, niin se ei poista sitä ennen lähetystä
+        // this.reload();
       });
     }
   }
@@ -108,26 +109,28 @@ export class ShoppingCartComponent implements OnInit {
 
 
   // order malliluokka huomioiden :
-
-  // huom. yritetaan tehda post
+  // POST eli sinetöidään tilaus, toimiva
   makeOrder(): void {
     let order: Order = {
       // order kentät : id, tablenumber, (products) orders, ordertime, status
       tableNumber: this.given,
-      orders: this.itemData,  // mikä tää order nyt on
+      orders: this.itemData,
       orderTime: this.current_date.toISOString(),
-      status: "open" // yritetään nyt laittaa tieto vain tähän
+      status: "open"
     }
 
     console.log("tämän alla tulostettu itemData");
     console.log(this.itemData);
 
-    this.ordersService.create(order).subscribe(() => {
-      console.log('Order saved');
-      this.router.navigate(['item/1']);
-    });
+    if (confirm("Haluatko varmasti lähettää tilauksen ")) {
+      this.ordersService.create(order).subscribe(() => {
+        console.log('Order saved');
+        this.router.navigate(['item/1']);
+        // ehkä tää reload vois tulla tänne
+        // this.reload();
+      });
+    }
+
   }
 
 }
-
-
