@@ -13,6 +13,7 @@
                     <th>Id</th>
                     <th>Tablenumber</th>
                     <th>Tilauksen Status</th>
+                    <th>Tilaus aika</th>
                     <th>Tilaus</th>
                 </tr>
             </thead>
@@ -21,6 +22,7 @@
                     <td>{{item.id}}</td>
                     <td>{{item.tableNumber}}</td>
                     <td>{{item.status}}</td>
+                    <td>{{item.orderTime | date:'d.M.y h:mm:ss a'}}</td>
 
                     <span *ngFor="let orders of item.orders">
                         <td>
@@ -51,6 +53,7 @@
                     <th>Id</th>
                     <th>Tablenumber</th>
                     <th>Tilauksen Status</th>
+                    <th>Tilaus aika</th>
                     <th>Tilaus</th>
                 </tr>
             </thead>
@@ -59,6 +62,7 @@
                     <td>{{item.id}}</td>
                     <td>{{item.tableNumber}}</td>
                     <td>{{item.status}}</td>
+                    <td>{{item.orderTime | date:'d.M.y h:mm:ss a'}}</td>
 
                     <span *ngFor="let orders of item.orders">
                         <td>
@@ -90,6 +94,7 @@
                     <th>Id</th>
                     <th>Tablenumber</th>
                     <th>Tilauksen Status</th>
+                    <th>Tilaus aika</th>
                     <th>Tilaus</th>
                 </tr>
             </thead>
@@ -98,6 +103,7 @@
                     <td>{{item.id}}</td>
                     <td>{{item.tableNumber}}</td>
                     <td>{{item.status}}</td>
+                    <td>{{item.orderTime | date:'d.M.y h:mm:ss a'}}</td>
 
                     <span *ngFor="let orders of item.orders">
                         <td>
@@ -129,6 +135,7 @@
                     <th>Id</th>
                     <th>Tablenumber</th>
                     <th>Tilauksen Status</th>
+                    <th>Tilaus aika</th>
                     <th>Tilaus</th>
                 </tr>
             </thead>
@@ -137,6 +144,7 @@
                     <td>{{item.id}}</td>
                     <td>{{item.tableNumber}}</td>
                     <td>{{item.status}}</td>
+                    <td>{{item.orderTime | date:'d.M.y h:mm:ss a'}}</td>
 
                     <span *ngFor="let orders of item.orders">
                         <td>

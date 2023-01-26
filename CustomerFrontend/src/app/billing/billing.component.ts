@@ -83,7 +83,7 @@ export class BillingComponent implements OnInit {
       id: id,
       tableNumber: this.itemDataOne[0].tableNumber,
       orders: this.itemDataOne[0].orders,
-      orderTime: this.current_date.toISOString(),
+      orderTime: this.itemDataOne[0].orderTime,
       status: "closed"
     }
     console.log("mikä on itemdataone[0].tablenumber: " + this.itemDataOne[0].tableNumber);
@@ -106,7 +106,7 @@ export class BillingComponent implements OnInit {
       id: id,
       tableNumber: this.itemDataTwo[0].tableNumber,
       orders: this.itemDataTwo[0].orders,
-      orderTime: this.current_date.toISOString(),
+      orderTime: this.itemDataTwo[0].orderTime,
       status: "closed"
     }
     console.log("mikä on itemdatatwo[0].tablenumber: " + this.itemDataTwo[0].tableNumber);
@@ -129,7 +129,7 @@ export class BillingComponent implements OnInit {
       id: id,
       tableNumber: this.itemDataThree[0].tableNumber,
       orders: this.itemDataThree[0].orders,
-      orderTime: this.current_date.toISOString(),
+      orderTime: this.itemDataThree[0].orderTime,
       status: "closed"
     }
     console.log("mikä on itemdatathree[0].tablenumber: " + this.itemDataThree[0].tableNumber);
@@ -152,7 +152,7 @@ export class BillingComponent implements OnInit {
       id: id,
       tableNumber: this.itemDataFour[0].tableNumber,
       orders: this.itemDataFour[0].orders,
-      orderTime: this.current_date.toISOString(),
+      orderTime: this.itemDataFour[0].orderTime,
       status: "closed"
     }
     console.log("mikä on itemdatafour[0].tablenumber: " + this.itemDataFour[0].tableNumber);

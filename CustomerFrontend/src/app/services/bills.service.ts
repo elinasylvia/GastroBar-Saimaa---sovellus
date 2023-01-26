@@ -56,7 +56,7 @@ export class BillsService {
     return this.httpClient.get(this.urlTableThree)
       .pipe(
         map(response => {
-          return response as OrderDto[];
+          return response as Order[];
         })
       );
   }
@@ -67,7 +67,7 @@ export class BillsService {
     return this.httpClient.get(this.urlTableFour)
       .pipe(
         map(response => {
-          return response as OrderDto[];
+          return response as Order[];
         })
       );
   }

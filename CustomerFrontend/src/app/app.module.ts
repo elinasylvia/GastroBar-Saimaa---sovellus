@@ -25,6 +25,7 @@ import { TestiComponent } from './testi/testi.component';
 import { ItemPageOneComponent } from './item-page-one/item-page-one.component';
 import { StaffOrdersComponent } from './staff-orders/staff-orders.component';
 import { BillingComponent } from './billing/billing.component';
+import { ItemPageTwoComponent } from './item-page-two/item-page-two.component';
 
 
 @NgModule({
@@ -37,6 +38,7 @@ import { BillingComponent } from './billing/billing.component';
     ItemPageOneComponent,
     StaffOrdersComponent,
     BillingComponent,
+    ItemPageTwoComponent,
   ],
   imports: [
     BrowserModule,
