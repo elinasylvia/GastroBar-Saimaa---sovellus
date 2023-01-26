@@ -10,6 +10,8 @@ export class LogincodeService {
 
   given: any;
 
+  cust: any;
+
   constructor(private httpClient: HttpClient) {
     // haetaan pöytänumeron perusteella
   }
@@ -24,5 +26,17 @@ export class LogincodeService {
   // tervetuloa sivulla annetun koodin lähetystä varten
   getText(): string {
     return this.given;
+  }
+
+  // asiakas koodin hakua varten
+  getCustomerCode(e: any) {
+    // kirjoitettu koodi saadaan tänne jos se täsmää oikeisiin
+    this.cust = e;
+    console.log(this.cust);
+  }
+
+  // asiakas koodin lähetystä varten
+  sendCustomerCode(): string {
+    return this.cust;
   }
 }

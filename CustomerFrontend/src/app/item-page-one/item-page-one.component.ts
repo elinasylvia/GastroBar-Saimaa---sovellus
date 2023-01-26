@@ -15,6 +15,7 @@ export class ItemPageOneComponent implements OnInit {
 
   // mikä oli alussa annettu koodi
   given: any;
+  cust: any;
 
   stat: any;
 
@@ -34,6 +35,9 @@ export class ItemPageOneComponent implements OnInit {
 
     // hae alussa annettu koodi
     this.given = this.logincodeService.getText();
+
+    // haetaan se asiakas koodi
+    this.cust = this.logincodeService.sendCustomerCode();
   }
 
   // yhtä hakua varten
