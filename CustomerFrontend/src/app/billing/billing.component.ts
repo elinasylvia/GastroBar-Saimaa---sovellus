@@ -1,16 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { map, Observable } from 'rxjs';
-import { OrdersService } from '../services/orders.service';
-import { Order, Products } from '../api/models';
+import { Order } from '../api/models';
+import { BillsService } from '../services/bills.service';
+
+/*Periaatteessa sama kun staff-orders, mutta muokataan haetaan "billing" statuksella olevat,
+ja muokataan ne "closed"*/
 
 @Component({
-  selector: 'app-staff-orders',
-  templateUrl: './staff-orders.component.html',
-  styleUrls: ['./staff-orders.component.css']
+  selector: 'app-billing',
+  templateUrl: './billing.component.html',
+  styleUrls: ['./billing.component.css']
 })
-export class StaffOrdersComponent implements OnInit {
-
-  resres: any;
+export class BillingComponent implements OnInit {
 
   // gettiä varten
   itemDataOne: any;
@@ -20,8 +20,7 @@ export class StaffOrdersComponent implements OnInit {
 
   current_date: Date = new Date();
 
-
-  constructor(public ordersService: OrdersService) {
+  constructor(public billsService: BillsService) {
   }
 
   ngOnInit(): void {
@@ -34,7 +33,7 @@ export class StaffOrdersComponent implements OnInit {
   // haetaan servicestä ja kannasta
   // 1 pöydälle
   loadOrdersOne(): void {
-    this.ordersService.getTableOne()
+    this.billsService.getTableOne()
       .subscribe
       (data => {
         this.itemDataOne = data
@@ -44,7 +43,7 @@ export class StaffOrdersComponent implements OnInit {
   // haetaan servicestä ja kannasta
   // 2 pöydälle
   loadOrdersTwo(): void {
-    this.ordersService.getTableTwo()
+    this.billsService.getTableTwo()
       .subscribe
       (data => {
         this.itemDataTwo = data;
@@ -55,7 +54,7 @@ export class StaffOrdersComponent implements OnInit {
   // haetaan servicestä ja kannasta
   // 3 pöydälle
   loadOrdersThree(): void {
-    this.ordersService.getTableThree()
+    this.billsService.getTableThree()
       .subscribe
       (data => {
         this.itemDataThree = data;
@@ -66,7 +65,7 @@ export class StaffOrdersComponent implements OnInit {
   // haetaan servicestä ja kannasta
   // 4 pöydälle
   loadOrdersFour(): void {
-    this.ordersService.getTableFour()
+    this.billsService.getTableFour()
       .subscribe
       (data => {
         this.itemDataFour = data;
@@ -85,13 +84,13 @@ export class StaffOrdersComponent implements OnInit {
       tableNumber: this.itemDataOne[0].tableNumber,
       orders: this.itemDataOne[0].orders,
       orderTime: this.current_date.toISOString(),
-      status: "billing"
+      status: "closed"
     }
     console.log("mikä on itemdataone[0].tablenumber: " + this.itemDataOne[0].tableNumber);
 
-    this.ordersService.onUpdateSubmit(id);
-    if (confirm("Haluatko merkitä tuotteen valmiiksi ")) {
-      this.ordersService.updateById({ id: id }, orri).subscribe((response: any) => {
+    this.billsService.onUpdateSubmit(id);
+    if (confirm("Haluatko merkitä tuotteen laskun suljetuksi ")) {
+      this.billsService.updateById({ id: id }, orri).subscribe((response: any) => {
         this.reload();
       });
     }
@@ -108,13 +107,13 @@ export class StaffOrdersComponent implements OnInit {
       tableNumber: this.itemDataTwo[0].tableNumber,
       orders: this.itemDataTwo[0].orders,
       orderTime: this.current_date.toISOString(),
-      status: "billing"
+      status: "closed"
     }
     console.log("mikä on itemdatatwo[0].tablenumber: " + this.itemDataTwo[0].tableNumber);
 
-    this.ordersService.onUpdateSubmit(id);
-    if (confirm("Haluatko merkitä tuotteen valmiiksi ")) {
-      this.ordersService.updateById({ id: id }, orri).subscribe((response: any) => {
+    this.billsService.onUpdateSubmit(id);
+    if (confirm("Haluatko merkitä tuotteen laskun suljetuksi ")) {
+      this.billsService.updateById({ id: id }, orri).subscribe((response: any) => {
         this.reload();
       });
     }
@@ -131,13 +130,13 @@ export class StaffOrdersComponent implements OnInit {
       tableNumber: this.itemDataThree[0].tableNumber,
       orders: this.itemDataThree[0].orders,
       orderTime: this.current_date.toISOString(),
-      status: "billing"
+      status: "closed"
     }
     console.log("mikä on itemdatathree[0].tablenumber: " + this.itemDataThree[0].tableNumber);
 
-    this.ordersService.onUpdateSubmit(id);
-    if (confirm("Haluatko merkitä tuotteen valmiiksi ")) {
-      this.ordersService.updateById({ id: id }, orri).subscribe((response: any) => {
+    this.billsService.onUpdateSubmit(id);
+    if (confirm("Haluatko merkitä tuotteen laskun suljetuksi ")) {
+      this.billsService.updateById({ id: id }, orri).subscribe((response: any) => {
         this.reload();
       });
     }
@@ -154,13 +153,13 @@ export class StaffOrdersComponent implements OnInit {
       tableNumber: this.itemDataFour[0].tableNumber,
       orders: this.itemDataFour[0].orders,
       orderTime: this.current_date.toISOString(),
-      status: "billing"
+      status: "closed"
     }
     console.log("mikä on itemdatafour[0].tablenumber: " + this.itemDataFour[0].tableNumber);
 
-    this.ordersService.onUpdateSubmit(id);
-    if (confirm("Haluatko merkitä tuotteen valmiiksi ")) {
-      this.ordersService.updateById({ id: id }, orri).subscribe((response: any) => {
+    this.billsService.onUpdateSubmit(id);
+    if (confirm("Haluatko merkitä tuotteen laskun suljetuksi ")) {
+      this.billsService.updateById({ id: id }, orri).subscribe((response: any) => {
         this.reload();
       });
     }
