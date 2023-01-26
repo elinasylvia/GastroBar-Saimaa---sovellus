@@ -11,6 +11,7 @@ export class ItemService {
 
   url: any;
   url2: any;
+  url3: any;
 
   basketUrl: any;
 
@@ -22,7 +23,10 @@ export class ItemService {
 
   constructor(private httpClient: HttpClient, private logincodeService: LogincodeService) {
     this.url = "https://localhost:7011/api/items/";
+
     this.url2 = "https://localhost:7011/api/items/1";
+    this.url3 = "https://localhost:7011/api/items/2";
+
     this.basketUrl = "https://localhost:7011/api/baskets/table/" + this.logincodeService.getText();
     // postia varten
     this.basketPost = "https://localhost:7011/api/baskets/";
@@ -40,9 +44,19 @@ export class ItemService {
       );
   }
 
-  // haetaan id:n perusteella mika on urlissa
+  // haetaan id:n perusteella mika on urlissa, item 1
   getOne(): Observable<Item[]> {
     return this.httpClient.get(this.url2)
+      .pipe(
+        map(response => {
+          return response as Item[];
+        })
+      );
+  }
+
+  // haetaan id:n perusteella mika on urlissa, item 2
+  getTwo(): Observable<Item[]> {
+    return this.httpClient.get(this.url3)
       .pipe(
         map(response => {
           return response as Item[];

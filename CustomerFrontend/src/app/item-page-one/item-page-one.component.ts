@@ -18,9 +18,8 @@ export class ItemPageOneComponent implements OnInit {
   given: any;
 
   stat: any;
+
   // tuodaan esiin aika
-  // kannassa joku häiriö kun näyttää kaikki ajat samanlaisina
-  // antaa kuitenkin lisätä kantaan tällä
   current_date: Date = new Date();
 
   // mihin saadaan inputin arvo
