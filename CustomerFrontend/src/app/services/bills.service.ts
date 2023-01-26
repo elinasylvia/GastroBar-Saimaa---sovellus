@@ -30,29 +30,29 @@ export class BillsService {
 
   // haetaan ostoskoriin tuotteet pöytänumeron perusteella
   // 234 pöytä
-  getTableOne(): Observable<OrderDto[]> {
+  getTableOne(): Observable<Order[]> {
     return this.httpClient.get(this.urlTableOne)
       .pipe(
         map(response => {
-          return response as OrderDto[];
+          return response as Order[];
         })
       );
   }
 
   // haetaan ostoskoriin tuotteet pöytänumeron perusteella
   // 563 pöytä
-  getTableTwo(): Observable<OrderDto[]> {
+  getTableTwo(): Observable<Order[]> {
     return this.httpClient.get(this.urlTableTwo)
       .pipe(
         map(response => {
-          return response as OrderDto[];
+          return response as Order[];
         })
       );
   }
 
   // haetaan ostoskoriin tuotteet pöytänumeron perusteella
   // 987 pöytä
-  getTableThree(): Observable<OrderDto[]> {
+  getTableThree(): Observable<Order[]> {
     return this.httpClient.get(this.urlTableThree)
       .pipe(
         map(response => {
@@ -63,7 +63,7 @@ export class BillsService {
 
   // haetaan ostoskoriin tuotteet pöytänumeron perusteella
   // 796 pöytä
-  getTableFour(): Observable<OrderDto[]> {
+  getTableFour(): Observable<Order[]> {
     return this.httpClient.get(this.urlTableFour)
       .pipe(
         map(response => {
