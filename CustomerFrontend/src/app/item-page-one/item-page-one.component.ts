@@ -66,7 +66,7 @@ export class ItemPageOneComponent implements OnInit {
     }
     this.itemService.create(basket).subscribe(() => {
       console.log('Basket saved');
-      this.router.navigate(['cart']);
+      this.router.navigate(['item/2']);
     });
   }
 }
