@@ -51,7 +51,7 @@ export class ItemPageTwoComponent implements OnInit {
     this.inputValue = event.target.value;
   }
 
-  // POST toimii
+  // POST / lähetetään tuote ostoskoriin
   addItemToBasket(): void {
     console.log(this.inputValue);
     let basket: Basket = {

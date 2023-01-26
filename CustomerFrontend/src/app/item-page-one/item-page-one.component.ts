@@ -3,7 +3,6 @@ import { ItemService } from '../services/item.service';
 import { Router } from "@angular/router"; // reititin nappuloita varten
 import { LogincodeService } from '../services/logincode.service'; // haetaan loginissa annettu koodi
 import { Basket } from '../api/models';
-import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-item-page-one',
@@ -53,7 +52,7 @@ export class ItemPageOneComponent implements OnInit {
     this.inputValue = event.target.value;
   }
 
-  // POST toimii
+  // POST / lähetetään tuote ostoskoriin
   addItemToBasket(): void {
     console.log(this.inputValue);
     let basket: Basket = {
@@ -66,6 +65,7 @@ export class ItemPageOneComponent implements OnInit {
     }
     this.itemService.create(basket).subscribe(() => {
       console.log('Basket saved');
+      // siirrytään seuraavaan tuotteeseen, kun kategoriat ei vielä projektissa
       this.router.navigate(['item/2']);
     });
   }

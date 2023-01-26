@@ -91,8 +91,7 @@ export class ItemService {
       );
   }
 
-  // tehään tälle oma basket service jos tää onnistuu, mutta käytetään sitä nyt ensin täältä
-  // tässä on nyt myös sama. että tää haluaa vaan luoda samanlaisen itemin mikä on jo täällä sivulla
+  // luodaan Basket
   create(basket: Basket): Observable<Basket> {
     return this.httpClient.post(this.basketPost, basket)
       .pipe(

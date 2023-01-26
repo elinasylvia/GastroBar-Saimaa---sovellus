@@ -89,7 +89,6 @@ export class BillsService {
     this.val = e;
   }
 
-  // toimii
   // updatea varten (staff puoli)
   updateById(id: any, orri: any): Observable<Order[]> {
     return this.httpClient.put((this.ordersUrl + this.val), orri)

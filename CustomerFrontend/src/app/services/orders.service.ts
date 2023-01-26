@@ -75,8 +75,7 @@ export class OrdersService {
       );
   }
 
-  // orderin luonti, muokattu basketista
-  // ei toimi vielä
+  // orderin luonti
   create(order: Order): Observable<Order> {
     return this.httpClient.post(this.ordersUrl, order)
       .pipe(
@@ -92,7 +91,6 @@ export class OrdersService {
     this.val = e;
   }
 
-  // toimii
   // updatea varten (staff puoli)
   updateById(id: any, orri: any): Observable<Order[]> {
     return this.httpClient.put((this.ordersUrl + this.val), orri)
@@ -103,9 +101,8 @@ export class OrdersService {
       );
   }
 
-  // updatea varten (ostoskori - basket puoli !!) toimii yksittäiselle tuotteelle
+  // updatea varten (ostoskori - basket puoli) toimii yksittäiselle tuotteelle
   updateByProuductId(id: any, basketti: any): Observable<Basket[]> {
-    // huom. tässä käytetään myös tota this.val jos se ei enää toimi
     return this.httpClient.put((this.basketsUrl + this.val), basketti)
       .pipe(
         map(response => {

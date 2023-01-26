@@ -73,7 +73,7 @@ export class BillingComponent implements OnInit {
       });
   }
 
-  // muokataan tilauksen status "billing"
+  // muokataan tilauksen status "closed"
   // 1 pöydälle
   updateOrderStatus(id?: number): void {
     if (id == null) {
@@ -96,7 +96,7 @@ export class BillingComponent implements OnInit {
     }
   }
 
-  // muokataan tilauksen status "billing"
+  // muokataan tilauksen status "closed"
   // 2 pöydälle
   updateOrderStatusTableTwo(id?: number): void {
     if (id == null) {
@@ -119,7 +119,7 @@ export class BillingComponent implements OnInit {
     }
   }
 
-  // muokataan tilauksen status "billing"
+  // muokataan tilauksen status "closed"
   // 3 pöydälle
   updateOrderStatusTableThree(id?: number): void {
     if (id == null) {
@@ -142,7 +142,7 @@ export class BillingComponent implements OnInit {
     }
   }
 
-  // muokataan tilauksen status "billing"
+  // muokataan tilauksen status "closed"
   // 4 pöydälle
   updateOrderStatusTableFour(id?: number): void {
     if (id == null) {

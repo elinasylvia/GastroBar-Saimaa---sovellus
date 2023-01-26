@@ -71,7 +71,7 @@ export class ShoppingCartComponent implements OnInit {
       return;
     }
 
-    // tää tulostaa nyt sen pituuden mitä tuol ostoskorissa on 
+    // tämä tulostaa sen pituuden mitä ostoskorissa on 
     this.arrLength = this.itemData.length - 1;
 
     console.log("pituus" + this.arrLength);
@@ -87,7 +87,7 @@ export class ShoppingCartComponent implements OnInit {
       // basket = tablenumber, item, price, amount + nyt sit myös status ja ordertime
       productId: id,
       tableNumber: this.given,
-      item: this.itemData[this.arrLength].item, // huom nää menee vielä väärin
+      item: this.itemData[this.arrLength].item,
       price: this.itemData[this.arrLength].price,
       amount: this.itemData[this.arrLength].amount,
       orderTime: this.current_date.toISOString(),
@@ -109,7 +109,7 @@ export class ShoppingCartComponent implements OnInit {
 
 
   // order malliluokka huomioiden :
-  // POST eli sinetöidään tilaus, toimiva
+  // POST eli sinetöidään tilaus
   makeOrder(): void {
     let order: Order = {
       // order kentät : id, tablenumber, (products) orders, ordertime, status
