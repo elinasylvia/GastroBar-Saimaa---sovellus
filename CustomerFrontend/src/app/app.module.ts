@@ -21,7 +21,6 @@ import { LoginComponent } from './login/login.component';
 import { environment } from 'src/environments/environment';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
-import { TestiComponent } from './testi/testi.component';
 import { ItemPageOneComponent } from './item-page-one/item-page-one.component';
 import { StaffOrdersComponent } from './staff-orders/staff-orders.component';
 import { BillingComponent } from './billing/billing.component';
@@ -34,7 +33,6 @@ import { ItemPageTwoComponent } from './item-page-two/item-page-two.component';
     LoginComponent,
     WelcomeComponent,
     ShoppingCartComponent,
-    TestiComponent,
     ItemPageOneComponent,
     StaffOrdersComponent,
     BillingComponent,
