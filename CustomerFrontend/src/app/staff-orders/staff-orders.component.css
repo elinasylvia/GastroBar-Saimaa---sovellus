@@ -1,0 +1,23 @@
+.big-container {
+    margin: 30px;
+    padding: 30px;
+}
+
+#hooar {
+    border: none;
+    border-top: 5px dotted #FF69B4;
+}
+
+table {
+    width: 70%;
+}
+
+tbody {
+    background-color: #ffae42;
+}
+
+td {
+    width: 80px;
+    margin: 20px;
+    padding-left: 20px;
+}

@@ -1,0 +1,31 @@
+<h1>Mikä koodi annettiin ostoskorissa</h1>
+<h1>{{given}}</h1>
+
+<h1>mikä on asiakas koodi</h1>
+<h1>{{cust}}</h1>
+
+<!--yhtä tuotetta varten-->
+<div class="container">
+
+    <h2>{{itemData.name}}</h2>
+
+    <h2>{{itemData.price}}</h2>
+    <h2> € / ateria</h2>
+
+    <h3>{{itemData.alv}}</h3>
+    <h3> %</h3>
+
+    <h3>{{itemData.calories}}</h3>
+    <h3> kcal / annos</h3>
+
+    <h3>{{itemData.description}}</h3>
+
+    <label>
+        <span>Lukumaara</span>
+        <input (change)="change($event)">
+    </label>
+
+    <img id="item-picture" src="{{itemData.image}}">
+
+    <button type="submit" mat-raised-button color="accent" (click)="addItemToBasket()">Ostoskoriin</button>
+</div>
