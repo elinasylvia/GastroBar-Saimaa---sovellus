@@ -1,0 +1,11 @@
+.category-header-image {
+    background-image: url('./../../assets/images/maincourse-view.jpg');
+    background-size: cover;
+}
+
+.category-card {
+    max-width: 400px;
+    max-height: 400px;
+    display: flex;
+    flex-direction: column;
+}

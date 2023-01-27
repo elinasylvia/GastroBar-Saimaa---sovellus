@@ -69,7 +69,8 @@ export class WelcomeComponent implements OnInit {
       this.logincodeService.onSubmit(this.givenCode);
       // luodaan myös tälle asiakkaalle oma "asiakasnumero"
       this.logincodeService.getCustomerCode(this.cusCode);
-      this.router.navigate(['item/1']);
+      // this.router.navigate(['item/1']);
+      this.router.navigate(['categoryview']);
     } else {
       // jos ei ollut oikea
       alert("Wrong code");

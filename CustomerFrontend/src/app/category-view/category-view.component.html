@@ -1,0 +1,15 @@
+<mat-grid-list cols="2">
+    <mat-grid-tile *ngFor="let category of categories">
+        <mat-card class="category-card" (click)="selectCategory(category.id)">
+            <mat-card-header>
+                <div mat-card-avatar class="category-header-image"></div>
+                <mat-card-title>{{category.name}}</mat-card-title>
+                <mat-card-subtitle>Valitse tästä</mat-card-subtitle>
+            </mat-card-header>
+            <img mat-card-image src={{category.imageUrl}} alt={{category.alternative}} />
+            <mat-card-content>
+
+            </mat-card-content>
+        </mat-card>
+    </mat-grid-tile>
+</mat-grid-list>

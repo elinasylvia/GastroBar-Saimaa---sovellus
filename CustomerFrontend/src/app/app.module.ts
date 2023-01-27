@@ -14,6 +14,11 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { MatListModule } from '@angular/material/list';
+import { MatCardModule } from '@angular/material/card';
+import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -25,6 +30,8 @@ import { ItemPageOneComponent } from './item-page-one/item-page-one.component';
 import { StaffOrdersComponent } from './staff-orders/staff-orders.component';
 import { BillingComponent } from './billing/billing.component';
 import { ItemPageTwoComponent } from './item-page-two/item-page-two.component';
+import { MainCourseViewComponent } from './main-course-view/main-course-view.component';
+import { CategoryViewComponent } from './category-view/category-view.component';
 
 
 @NgModule({
@@ -37,6 +44,8 @@ import { ItemPageTwoComponent } from './item-page-two/item-page-two.component';
     StaffOrdersComponent,
     BillingComponent,
     ItemPageTwoComponent,
+    MainCourseViewComponent,
+    CategoryViewComponent,
   ],
   imports: [
     BrowserModule,
@@ -53,7 +62,9 @@ import { ItemPageTwoComponent } from './item-page-two/item-page-two.component';
     MatButtonModule,
     HttpClientModule,
     MatListModule,
-    MatIconModule
+    MatIconModule,
+    MatCardModule,
+    MatGridListModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
