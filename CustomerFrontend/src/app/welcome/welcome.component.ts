@@ -16,14 +16,19 @@ export class WelcomeComponent implements OnInit {
   form: FormGroup;
 
   givenCode: any;
-  ran: number;
+
+  ran: any;
+  ran1: any;
+  cusCode: any;
   // vanhaa multi inputtia varten:
   // formInput = ['input1', 'input2', 'input3'];
   // @ViewChildren('formRow') rows: any;
 
   constructor(public router: Router, private logincodeService: LogincodeService) {
     // luodaan math randomilla asiakkaalle vielä erikseen asiakas koodi
-    this.ran = Math.floor(Math.random() * (50000 - 1000) + 1000);
+    this.ran = Math.floor(Math.random() * (50000 - 1000) + 1000).toString();
+    this.ran1 = Math.floor(Math.random() * (500 - 100) + 100).toString();
+    this.cusCode = this.ran + this.ran1;
 
     // vanhaa multi inputtia varten:
     // this.form = this.toFormGroup(this.formInput);
@@ -63,7 +68,7 @@ export class WelcomeComponent implements OnInit {
       // lähetetään koodi servicelle
       this.logincodeService.onSubmit(this.givenCode);
       // luodaan myös tälle asiakkaalle oma "asiakasnumero"
-      this.logincodeService.getCustomerCode(this.ran);
+      this.logincodeService.getCustomerCode(this.cusCode);
       this.router.navigate(['item/1']);
     } else {
       // jos ei ollut oikea

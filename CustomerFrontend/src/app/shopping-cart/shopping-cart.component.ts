@@ -29,6 +29,7 @@ export class ShoppingCartComponent implements OnInit {
   constructor(public router: Router, private ordersService: OrdersService, public logincodeService: LogincodeService, public itemService: ItemService, private basketsService: BasketsService) {
     // annettu koodi haetaan servicen kautta welcome komponentista
     this.given = this.logincodeService.getText();
+
     this.stat = "open";
     this.arrLength = 0;
   }

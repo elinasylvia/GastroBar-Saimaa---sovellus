@@ -15,7 +15,7 @@ export class ItemPageOneComponent implements OnInit {
 
   // mikä oli alussa annettu koodi
   given: any;
-  cust: any;
+  cust: string;
 
   stat: any;
 
@@ -27,6 +27,9 @@ export class ItemPageOneComponent implements OnInit {
 
   constructor(public itemService: ItemService, public router: Router, public logincodeService: LogincodeService) {
     this.stat = "basket";
+
+    // haetaan se asiakas koodi
+    this.cust = this.logincodeService.sendCustomerCode();
   }
 
   ngOnInit(): void {
@@ -35,9 +38,6 @@ export class ItemPageOneComponent implements OnInit {
 
     // hae alussa annettu koodi
     this.given = this.logincodeService.getText();
-
-    // haetaan se asiakas koodi
-    this.cust = this.logincodeService.sendCustomerCode();
   }
 
   // yhtä hakua varten
@@ -61,6 +61,7 @@ export class ItemPageOneComponent implements OnInit {
     console.log(this.inputValue);
     let basket: Basket = {
       tableNumber: this.given,
+      customerCode: this.cust,
       item: this.itemData.name,
       price: this.itemData.price,
       amount: this.inputValue,

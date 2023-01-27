@@ -14,6 +14,7 @@ export class ItemService {
   url3: any;
 
   basketUrl: any;
+  customerUrl: any;
 
   // postia varten
   basketPost: any;
@@ -27,7 +28,12 @@ export class ItemService {
     this.url2 = "https://localhost:7011/api/items/1";
     this.url3 = "https://localhost:7011/api/items/2";
 
+    // jos haettaisiin pöytänumeron perusteella
     this.basketUrl = "https://localhost:7011/api/baskets/table/" + this.logincodeService.getText();
+
+    // haetaan tilaus asiakasnumeron perusteella
+    this.customerUrl = "https://localhost:7011/api/baskets/table/customer/" + this.logincodeService.sendCustomerCode();
+
     // postia varten
     this.basketPost = "https://localhost:7011/api/baskets/";
 
@@ -64,9 +70,9 @@ export class ItemService {
       );
   }
 
-  // haetaan ostoskoriin tuotteet pöytänumeron perusteella
+  // haetaan ostoskoriin tuotteet asiakasnumeron perusteella
   getTable(): Observable<BasketDto[]> {
-    return this.httpClient.get(this.basketUrl)
+    return this.httpClient.get(this.customerUrl)
       .pipe(
         map(response => {
           return response as BasketDto[];

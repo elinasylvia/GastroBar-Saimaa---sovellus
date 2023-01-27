@@ -14,6 +14,8 @@ export class ItemPageTwoComponent implements OnInit {
 
   // mikä oli alussa annettu koodi
   given: any;
+  // customer number
+  cust: string;
 
   stat: any;
 
@@ -25,6 +27,8 @@ export class ItemPageTwoComponent implements OnInit {
 
   constructor(public itemService: ItemService, public router: Router, public logincodeService: LogincodeService) {
     this.stat = "basket";
+    // hae alussa luotu asiakas koodi
+    this.cust = this.logincodeService.sendCustomerCode();
   }
 
   ngOnInit(): void {
@@ -56,6 +60,7 @@ export class ItemPageTwoComponent implements OnInit {
     console.log(this.inputValue);
     let basket: Basket = {
       tableNumber: this.given,
+      customerCode: this.cust,
       item: this.itemData.name,
       price: this.itemData.price,
       amount: this.inputValue,

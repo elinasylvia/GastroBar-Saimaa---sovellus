@@ -2,6 +2,7 @@
 /* eslint-disable */
 export interface Basket {
   amount?: null | string;
+  customerCode?: null | string;
   item?: null | string;
   orderTime?: string;
   price?: null | string;
