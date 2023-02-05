@@ -11,8 +11,8 @@ export class ProductService {
   }
   constructor() {
     this.productArray = [
-      new Product("Briossisämpylän välissä 180g naudanlihapihvi, cheddarjuusto, chilimajoneesi,    salaatti, punasipuli. Lisukkeena ranskalaiset.", "assets/images/bostonburger.jpg", 15.90, "Boston hampurilainen"),
-      new Product("Briossisämpylän välissä 180g naudanlihapihvi, cheddarjuusto, chilimajoneesi,    salaatti, punasipuli. Lisukkeena ranskalaiset.", "assets/images/bostonburger.jpg", 15.90, "Boston hampurilainen")
+      new Product("Briossisämpylän välissä 180g naudanlihapihvi, cheddarjuusto, chilimajoneesi,    salaatti, punasipuli. Lisukkeena ranskalaiset.", "assets/images/bostonburger.jpg", 15.90, "Boston hampurilainen", "1"),
+      new Product("Briossisämpylän välissä 180g naudanlihapihvi, cheddarjuusto, chilimajoneesi,    salaatti, punasipuli. Lisukkeena ranskalaiset.", "assets/images/bostonburger.jpg", 15.90, "Boston hampurilainen", "2")
     ];
   }
 }

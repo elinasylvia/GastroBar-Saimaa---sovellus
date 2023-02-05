@@ -22,4 +22,8 @@ export class MainCourseViewComponent implements OnInit {
   goToItem2() {
     this.router.navigate(['item/2']);
   }
+
+  viewProduct(productId: string) {
+    this.router.navigate(['item/' + productId]);
+  }
 }
