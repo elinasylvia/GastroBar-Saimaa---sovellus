@@ -1,10 +1,11 @@
 /* tslint:disable */
 /* eslint-disable */
 export interface Products {
-  amount?: null | string;
-  id?: number;
+  amount: number;
+  id?: string | null;
   item?: null | string;
-  price?: null | string;
-  productId?: number;
+  price?: null | number;
+  productId: number;
   status?: null | string;
+  imageUrl?: null | string;
 }

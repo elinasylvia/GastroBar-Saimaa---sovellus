@@ -6,3 +6,18 @@ table {
 button {
     margin: 10px;
 }
+
+.mat-list-item {
+    margin-top: 2.5em;
+    margin-bottom: 2.5em;
+    padding-left: 2em;
+}
+
+.mat-list-item-title {
+    padding: 2.5em;
+}
+
+.mat-divider {
+    margin-top: 2em;
+    margin-bottom: 2em;
+}

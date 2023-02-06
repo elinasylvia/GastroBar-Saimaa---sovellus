@@ -16,6 +16,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { MatTableModule } from '@angular/material/table';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -29,6 +30,9 @@ import { BillingComponent } from './billing/billing.component';
 import { ItemPageTwoComponent } from './item-page-two/item-page-two.component';
 import { MainCourseViewComponent } from './main-course-view/main-course-view.component';
 import { CategoryViewComponent } from './category-view/category-view.component';
+import { ToolbarComponent } from './toolbar/toolbar.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatMenuModule } from '@angular/material/menu';
 
 
 @NgModule({
@@ -43,6 +47,7 @@ import { CategoryViewComponent } from './category-view/category-view.component';
     ItemPageTwoComponent,
     MainCourseViewComponent,
     CategoryViewComponent,
+    ToolbarComponent,
   ],
   imports: [
     BrowserModule,
@@ -62,6 +67,10 @@ import { CategoryViewComponent } from './category-view/category-view.component';
     MatIconModule,
     MatCardModule,
     MatGridListModule,
+    MatToolbarModule,
+    MatMenuModule,
+    MatTableModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]
