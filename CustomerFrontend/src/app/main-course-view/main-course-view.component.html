@@ -2,7 +2,7 @@
     <mat-grid-tile *ngFor="let product of products">
         <mat-card class="maincourse-card" (click)="viewProduct(product.id)">
             <mat-card-header>
-                <div mat-card-avatar class="maincourse-header-image"></div>
+                <img mat-card-avatar src={{product.imageUrl}}>
                 <mat-card-title>{{product.name}}</mat-card-title>
                 <mat-card-title class="card-container-right">{{product.price}}€</mat-card-title>
                 <mat-card-subtitle>Pääruoat</mat-card-subtitle>
