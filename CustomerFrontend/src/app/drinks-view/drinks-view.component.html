@@ -1,0 +1,26 @@
+<mat-grid-list cols="2">
+    <mat-grid-tile *ngFor="let product of products">
+        <mat-card class="drinks-card" (click)="viewProduct(product.id)">
+            <mat-card-header>
+                <img mat-card-avatar src={{product.imageUrl}}>
+                <mat-card-title>{{product.name}}</mat-card-title>
+                <mat-card-title class="card-container-right">{{product.price}}€</mat-card-title>
+                <mat-card-subtitle>Juomat</mat-card-subtitle>
+            </mat-card-header>
+            <img class="drinks-img" mat-card-image src={{product.imageUrl}} alt="photo" />
+            <mat-card-content>
+                <p>
+
+                    {{product.description}}
+                </p>
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-raised-button><span class="material-symbols-outlined">
+                        add_shopping_cart
+                    </span>
+                </button>
+
+            </mat-card-actions>
+        </mat-card>
+    </mat-grid-tile>
+</mat-grid-list>

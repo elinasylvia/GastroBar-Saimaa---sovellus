@@ -33,6 +33,7 @@ import { CategoryViewComponent } from './category-view/category-view.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
+import { DrinksViewComponent } from './drinks-view/drinks-view.component';
 
 
 @NgModule({
@@ -48,6 +49,7 @@ import { MatMenuModule } from '@angular/material/menu';
     MainCourseViewComponent,
     CategoryViewComponent,
     ToolbarComponent,
+    DrinksViewComponent,
   ],
   imports: [
     BrowserModule,

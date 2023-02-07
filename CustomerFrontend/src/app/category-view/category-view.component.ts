@@ -20,6 +20,9 @@ export class CategoryViewComponent implements OnInit {
     if (id === 1) {
       this.router.navigate(['maincourseview'])
     }
+    if (id === 2) {
+      this.router.navigate(['drinksview'])
+    }
   }
   ngOnInit(): void {
   }

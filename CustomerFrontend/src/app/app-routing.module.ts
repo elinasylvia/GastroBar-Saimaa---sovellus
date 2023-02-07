@@ -9,6 +9,7 @@ import { BillingComponent } from './billing/billing.component';
 import { ItemPageOneComponent } from './item-page-one/item-page-one.component';
 import { ItemPageTwoComponent } from './item-page-two/item-page-two.component';
 import { StaffOrdersComponent } from './staff-orders/staff-orders.component';
+import { DrinksViewComponent } from './drinks-view/drinks-view.component';
 
 
 // reitit
@@ -22,6 +23,7 @@ const routes: Routes = [
   { path: 'billing', component: BillingComponent },
   { path: 'maincourseview', component: MainCourseViewComponent },
   { path: 'categoryview', component: CategoryViewComponent },
+  { path: 'drinksview', component: DrinksViewComponent },
 ];
 
 @NgModule({
