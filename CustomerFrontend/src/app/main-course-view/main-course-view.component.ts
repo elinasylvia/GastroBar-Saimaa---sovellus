@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Product } from '../product';
 import { ProductService } from '../services/product.service';
 import { Router } from '@angular/router';
+import { CartService } from '../services/cart.service';
 
 @Component({
   selector: 'app-main-course-view',
@@ -10,8 +11,11 @@ import { Router } from '@angular/router';
 })
 export class MainCourseViewComponent implements OnInit {
   public products: Product[] = [];
-  constructor(productService: ProductService, public router: Router) {
+
+  constructor(productService: ProductService, private cartService: CartService, public router: Router) {
     this.products = productService.getData();
+    this.cartService = cartService;
+
   }
   ngOnInit(): void {
   }
@@ -25,5 +29,8 @@ export class MainCourseViewComponent implements OnInit {
 
   viewProduct(productId: string) {
     this.router.navigate(['item/' + productId]);
+  }
+  addToCart(id: string) {
+    this.cartService.addToCart(id);
   }
 }
