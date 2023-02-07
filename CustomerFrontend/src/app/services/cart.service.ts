@@ -12,12 +12,12 @@ export class CartService {
     let storedCart = localStorage.getItem('cart_' + given);
     let cart: string[];
     if (storedCart === null) {
-      cart = [productId];
+      cart = [];
     } else {
       cart = JSON.parse(storedCart);
-      cart.push(productId);
     }
 
+    cart.push(productId);
     localStorage.setItem('cart_' + given, JSON.stringify(cart));
   }
 }
