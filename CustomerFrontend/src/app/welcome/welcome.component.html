@@ -1,8 +1,15 @@
 <div class="full-body">
+<div class="topcontainer"></div>
+    
+    
+    
+    
     <div class="container">
 
+        
+
         <h2>Tervetuloa!</h2>
-        <h3>Kirjoita pöydässä lukeva 3-numeroinen koodi</h3>
+        <h3>Kirjoita pöydässä lukeva 3-numeroinen koodi:</h3>
         <h4>Huom. toimivat koodit: 234, 563, 987, 796</h4>
 
         <!--multi-input-->
@@ -21,7 +28,7 @@
                         (keyup)="move($event, txt2, txt3, '')">
                 </div>
             </div>
-            <button type="submit" mat-raised-button color="accent" [disabled]="form.invalid">tilaa nyt</button>
+            <button type="submit" mat-raised-button color="blue" [disabled]="form.invalid">tilaa nyt</button>
         </form>
 
     </div>
