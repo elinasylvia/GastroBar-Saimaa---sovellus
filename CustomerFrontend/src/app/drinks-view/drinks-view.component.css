@@ -1,11 +1,11 @@
-.maincourse-card {
+.drinks-card {
     max-width: 400px;
     max-height: 400px;
     display: flex;
     flex-direction: column;
 }
 
-.maincourse-header-image {
+.drinks-header-image {
     background-image: url('./../../assets/images/bostonburger.jpg');
     background-size: cover;
 }
@@ -18,10 +18,3 @@
 .mat-card-title:not(:first-child) {
     margin-top: -30px;
 }
-
-/* .maincourse-img {
-    float: left;
-    width: 400px;
-    height: 200px;
-    object-fit: cover;
-} */

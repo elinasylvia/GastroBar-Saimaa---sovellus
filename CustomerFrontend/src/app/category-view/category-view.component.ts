@@ -12,11 +12,16 @@ export class CategoryViewComponent implements OnInit {
   public categories: Category[] = [];
 
   constructor(public router: Router) {
-    this.categories = [new Category("assets/images/maincourse-view.jpg", "Pääruuat", 1, "pääruuat")]
+    this.categories = [
+      new Category("assets/images/maincourse-view.jpg", "Pääruuat", 1, "pääruuat"),
+      new Category("assets/images/drinks.jpg", "Juomat", 2, "juomat")]
   }
   selectCategory(id: number) {
     if (id === 1) {
       this.router.navigate(['maincourseview'])
+    }
+    if (id === 2) {
+      this.router.navigate(['drinksview'])
     }
   }
   ngOnInit(): void {

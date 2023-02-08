@@ -19,12 +19,14 @@ export class LogincodeService {
   // tervetuloa sivulla annetun koodin hakua varten
   onSubmit(e: any) {
     // kirjoitettu koodi saadaan tänne jos se täsmää oikeisiin
+    localStorage.setItem('given', e);
     this.given = e;
     console.log(this.given);
   }
 
   // tervetuloa sivulla annetun koodin lähetystä varten
   getText(): string {
+    return localStorage.getItem('given') ?? '';
     return this.given;
   }
 

@@ -4,7 +4,7 @@ import { ItemService } from '../services/item.service';
 import { BasketsService } from '../api/services';
 import { OrdersService } from '../services/orders.service';
 import { Router } from "@angular/router"; // reititin nappuloita varten
-import { Order, Products, Basket } from '../api/models';
+import { Order, Products, Basket, BasketDto } from '../api/models';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -17,7 +17,7 @@ export class ShoppingCartComponent implements OnInit {
   given: any;
 
   // gettiä varten
-  itemData: any;
+  itemData: Products[] = [];
 
   // aika
   current_date: Date = new Date();
@@ -25,6 +25,7 @@ export class ShoppingCartComponent implements OnInit {
   stat: any;
 
   arrLength: number;
+
 
   constructor(public router: Router, private ordersService: OrdersService, public logincodeService: LogincodeService, public itemService: ItemService, private basketsService: BasketsService) {
     // annettu koodi haetaan servicen kautta welcome komponentista
@@ -41,29 +42,58 @@ export class ShoppingCartComponent implements OnInit {
 
   // haetaan servicestä ja kannasta
   loadItems(): void {
-    this.itemService.getTable()
-      .subscribe
-      (data => {
-        this.itemData = data;
-        console.log(this.itemData);
-        // this.itemData[0], this.itemData[1], this.itemData[2]
-      });
+    this.itemData = [{ productId: 1, item: 'Hamppari', price: 10, amount: 2, imageUrl: '../../assets/images/bostonburger.jpg' },
+    { productId: 2, item: 'Hamppari2', price: 5, amount: 1, imageUrl: '../../assets/images/bostonburger.jpg' }];
+    // this.itemService.getTable()
+    //   .subscribe
+    //   (data => {
+    //     this.itemData = data;
+    //     this.itemData = [{ name: 'Hamppari', price: 10, amount: 2 }];
+    //     console.log(this.itemData);
+    // this.itemData[0], this.itemData[1], this.itemData[2]
+    //});
   }
 
   // toimiva
+  plus(id: number) {
+    let item = this.itemData.find(item => item.productId === id);
+    if (item) {
+      item.amount++;
+    }
+  }
+  minus(id: number) {
+    let item = this.itemData.find(item => item.productId === id);
+    if (item && item.amount > 0) {
+      item.amount--;
+    }
+  }
+
+  getTotal() {
+    return this.itemData
+      .map(item => item.amount * (item.price ?? 0))
+      .reduce((prev, curr) => prev + curr, 0);
+  }
+
   deleteBasketProduct(id?: number): void {
     if (id == null) {
       return;
     }
-    // lähetetään nyt tällä tavoin tuo id:n arvo servicelle
-    this.itemService.onSubmit(id);
 
     if (confirm("Haluatko varmasti poistaa kohteen ")) {
-      this.itemService.deleteById({ id: id }).subscribe((response: any) => {
-        // console.log(response);
-        this.reload();
-      });
+      let item = this.itemData.find(item => item.productId === id);
+      if (item) {
+        this.itemData.splice(this.itemData.indexOf(item), 1);
+      }
     }
+    // lähetetään nyt tällä tavoin tuo id:n arvo servicelle
+    // this.itemService.onSubmit(id);
+
+    // if (confirm("Haluatko varmasti poistaa kohteen ")) {
+    //   this.itemService.deleteById({ id: id }).subscribe((response: any) => {
+    //     // console.log(response);
+    //     this.reload();
+    //   });
+    // }
   }
 
   // PUT jokaiselle tuotteelle
