@@ -17,7 +17,7 @@ export class ShoppingCartComponent implements OnInit {
   given: any;
 
   // gettiä varten
-  itemData: Products[] = [];
+  itemData: any;
 
   // aika
   current_date: Date = new Date();
@@ -42,49 +42,46 @@ export class ShoppingCartComponent implements OnInit {
 
   // haetaan servicestä ja kannasta
   loadItems(): void {
-    this.itemData = [{ productId: 1, item: 'Hamppari', price: 10, amount: 2, imageUrl: '../../assets/images/bostonburger.jpg' },
-    { productId: 2, item: 'Hamppari2', price: 5, amount: 1, imageUrl: '../../assets/images/bostonburger.jpg' }];
-    // this.itemService.getTable()
-    //   .subscribe
-    //   (data => {
-    //     this.itemData = data;
-    //     this.itemData = [{ name: 'Hamppari', price: 10, amount: 2 }];
-    //     console.log(this.itemData);
-    // this.itemData[0], this.itemData[1], this.itemData[2]
-    //});
+    this.itemService.getTable()
+      .subscribe
+      (data => {
+        this.itemData = data;
+        console.log(this.itemData);
+        this.itemData[0], this.itemData[1], this.itemData[2]
+      });
   }
 
   // toimiva
-  plus(id: number) {
-    let item = this.itemData.find(item => item.productId === id);
-    if (item) {
-      item.amount++;
-    }
-  }
-  minus(id: number) {
-    let item = this.itemData.find(item => item.productId === id);
-    if (item && item.amount > 0) {
-      item.amount--;
-    }
-  }
+  // plus(id: number) {
+  //   let item = this.itemData.find(item => item.productId === id);
+  //   if (item) {
+  //     item.amount++;
+  //   }
+  // }
+  // minus(id: number) {
+  //   let item = this.itemData.find(item => item.productId === id);
+  //   if (item && item.amount > 0) {
+  //     item.amount--;
+  //   }
+  // }
 
-  getTotal() {
-    return this.itemData
-      .map(item => item.amount * (item.price ?? 0))
-      .reduce((prev, curr) => prev + curr, 0);
-  }
+  // getTotal() {
+  //   return this.itemData
+  //     .map(item => item.amount * (item.price ?? 0))
+  //     .reduce((prev, curr) => prev + curr, 0);
+  // }
 
   deleteBasketProduct(id?: number): void {
     if (id == null) {
       return;
     }
 
-    if (confirm("Haluatko varmasti poistaa kohteen ")) {
-      let item = this.itemData.find(item => item.productId === id);
-      if (item) {
-        this.itemData.splice(this.itemData.indexOf(item), 1);
-      }
-    }
+    // if (confirm("Haluatko varmasti poistaa kohteen ")) {
+    //   let item = this.itemData.find(item => item.productId === id);
+    //   if (item) {
+    //     this.itemData.splice(this.itemData.indexOf(item), 1);
+    //   }
+    // }
     // lähetetään nyt tällä tavoin tuo id:n arvo servicelle
     // this.itemService.onSubmit(id);
 
