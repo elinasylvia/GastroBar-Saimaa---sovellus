@@ -1,5 +1,5 @@
 <p>
-    <mat-toolbar>
+    <mat-toolbar class="toolbar">
         <span>
             <button mat-button [matMenuTriggerFor]="menu" class="example-icon"
                 aria-label="Example icon-button with menu icon">
@@ -15,6 +15,8 @@
         </span>
     </mat-toolbar>
     <mat-menu #menu="matMenu">
-        <a routerLink="/cart" mat-menu-item routerLinkActive="active">Shopping cart</a>
+        <a routerLink="/categoryview" mat-menu-item routerLinkActive="active">Etusivulle</a>
+        <a routerLink="/maincourseview" mat-menu-item routerLinkActive="active">Pääruuuat</a>
+        <a routerLink="/drinksview" mat-menu-item routerLinkActive="active">Juomat</a>
     </mat-menu>
 </p>
