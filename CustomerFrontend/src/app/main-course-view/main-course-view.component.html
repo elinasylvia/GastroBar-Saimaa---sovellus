@@ -1,4 +1,4 @@
-<mat-grid-list cols="2">
+<mat-grid-list cols="2" rowHeight="2:1">
     <mat-grid-tile *ngFor="let product of products">
         <mat-card class="maincourse-card" (click)="viewProduct(product.id)">
             <mat-card-header>
@@ -9,19 +9,24 @@
             </mat-card-header>
             <img class="maincourse-img" mat-card-image src={{product.imageUrl}} alt="Photo of boston burger" />
             <mat-card-content>
+                <button mat-raised-button class="mat-raised-button"
+                    (click)="addToCart(product.id); $event.stopPropagation()"><span class="material-symbols-outlined">
+                        add_shopping_cart
+                    </span>
+                </button>
                 <p>
 
                     {{product.description}}
                 </p>
             </mat-card-content>
-            <mat-card-actions>
+            <!-- <mat-card-actions>
                 <button mat-raised-button (click)="addToCart(product.id); $event.stopPropagation()"><span
                         class="material-symbols-outlined">
                         add_shopping_cart
                     </span>
                 </button>
 
-            </mat-card-actions>
+            </mat-card-actions> -->
         </mat-card>
     </mat-grid-tile>
 </mat-grid-list>
