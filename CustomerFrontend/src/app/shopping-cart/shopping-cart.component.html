@@ -1,3 +1,6 @@
+<!--
+elinan tekemä
+
 <h1>Tablenumber: {{given}}</h1>
 <mat-list>
     <div mat-subheader>Your order</div>
@@ -22,4 +25,42 @@
 
 Total: {{getTotal()}}
 <br>
+<button type="submit" mat-raised-button color="accent" (click)="makeOrder()">Lähetä tilaus</button>
+-->
+
+<!--apiin liittyvä-->
+<h1>Tablenumber</h1>
+<h1>{{given}}</h1>
+
+<h2>Your order</h2>
+
+<p>get/baskets/table/tablenumber missä status: basket</p>
+<div class="container">
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Product code</th>
+                <th>Nimi</th>
+                <th>Hinta</th>
+                <th>Maara</th>
+                <th></th>
+                <!--<th>Basket Status</th>-->
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of itemData">
+                <td><button mat-fab color="warn"
+                        (click)="deleteBasketProduct(item.productId)"><mat-icon>delete</mat-icon></button></td>
+                <td><span>{{item.productId}}</span></td>
+                <td><span>{{item.item}}</span></td>
+                <td><span>{{item.price}}</span></td>
+                <td><span>{{item.amount}}</span></td>
+                <!--<td><span>{{item.status}}</span></td>-->
+                <td><button mat-fab (click)="putBasketProduct(item.productId)"><mat-icon>check</mat-icon></button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
 <button type="submit" mat-raised-button color="accent" (click)="makeOrder()">Lähetä tilaus</button>
