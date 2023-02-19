@@ -56,6 +56,8 @@ export class ItemPageOneComponent implements OnInit {
     this.inputValue = event.target.value;
   }
 
+  addToCart(productId: string) { }
+
   // POST / lähetetään tuote ostoskoriin
   addItemToBasket(): void {
     console.log(this.inputValue);

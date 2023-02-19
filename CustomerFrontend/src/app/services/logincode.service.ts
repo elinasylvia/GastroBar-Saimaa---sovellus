@@ -34,6 +34,7 @@ export class LogincodeService {
   getCustomerCode(e: any) {
     // kirjoitettu koodi saadaan tänne jos se täsmää oikeisiin
     this.cust = e;
+    localStorage.setItem('customerCode', e)
     console.log(this.cust);
   }
 
