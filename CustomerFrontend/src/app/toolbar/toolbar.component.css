@@ -5,3 +5,9 @@
 .toolbar {
     background: transparent;
 }
+
+.toolbar-img {
+    width: 200px;
+    position: absolute;
+    top: 20px;
+}

@@ -30,14 +30,17 @@ export class ItemPageOneComponent implements OnInit {
 
     // haetaan se asiakas koodi
     this.cust = this.logincodeService.sendCustomerCode();
-  }
-
-  ngOnInit(): void {
+    // hae alussa annettu koodi
+    this.given = this.logincodeService.getText();
     // lataa yksi tuote aina ngOnInitissä
     this.loadItem();
 
-    // hae alussa annettu koodi
-    this.given = this.logincodeService.getText();
+  }
+
+  addToCart(productId: string) { }
+
+  ngOnInit(): void {
+
   }
 
   // yhtä hakua varten

@@ -1,31 +1,27 @@
-<h1>Mikä koodi annettiin ostoskorissa</h1>
-<h1>{{given}}</h1>
-
-<h1>mikä on asiakas koodi</h1>
-<h1>{{cust}}</h1>
-
-<!--yhtä tuotetta varten-->
+<img src="../../assets/images/maincourse-view.jpg" class="bg-image">
 <div class="container">
+    <mat-card class="maincourse-card">
+        <mat-card-header>
+        </mat-card-header>
+        <img class="maincourse-img" mat-card-image src={{itemData.image}} alt="" />
+        <mat-card-content>
+            <h1>{{itemData.name}}</h1>
+            <h2> {{itemData.price}}€ / ateria, sis. alv {{itemData.alv}} %</h2>
+            <h3 class="item-description">{{itemData.description}}</h3>
+            <form class="example-form">
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Lisätoiveet</mat-label>
+                    <textarea matInput placeholder=""></textarea>
+                </mat-form-field>
+            </form>
 
-    <h2>{{itemData.name}}</h2>
-
-    <h2>{{itemData.price}}</h2>
-    <h2> € / ateria</h2>
-
-    <h3>{{itemData.alv}}</h3>
-    <h3> %</h3>
-
-    <h3>{{itemData.calories}}</h3>
-    <h3> kcal / annos</h3>
-
-    <h3>{{itemData.description}}</h3>
-
-    <label>
-        <span>Lukumaara</span>
-        <input (change)="change($event)">
-    </label>
-
-    <img id="item-picture" src="{{itemData.image}}">
-
-    <button type="submit" mat-raised-button color="accent" (click)="addItemToBasket()">Ostoskoriin</button>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button class="mat-raised-button"
+                (click)="addItemToBasket(); $event.stopPropagation()"><span class="material-symbols-outlined">
+                    add_shopping_cart
+                </span>
+            </button>
+        </mat-card-actions>
+    </mat-card>
 </div>
