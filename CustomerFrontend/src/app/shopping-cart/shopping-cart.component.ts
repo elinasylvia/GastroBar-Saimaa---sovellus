@@ -124,6 +124,7 @@ export class ShoppingCartComponent implements OnInit {
     console.log(this.itemData);
 
     if (confirm("Haluatko varmasti lähettää tilauksen ")) {
+      localStorage.clear();
       this.ordersService.create(order).subscribe(() => {
         console.log('Order saved');
         this.router.navigate(['staff-orders']);
