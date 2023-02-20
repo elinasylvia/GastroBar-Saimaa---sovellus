@@ -39,6 +39,10 @@ export class ShoppingCartComponent implements OnInit {
     this.loadItems();
   }
 
+  orderMore(): void {
+    this.router.navigate(['categoryview']);
+  }
+
   // haetaan servicestä ja kannasta
   loadItems(): void {
     this.itemService.getTable()
