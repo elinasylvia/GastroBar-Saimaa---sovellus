@@ -98,7 +98,7 @@ button {
 
 }
 
-/* Large devices (laptops/desktops, 992px and up) */
+
 @media only screen and (min-width: 992px) and (max-height: 800px){
     .topcontainer {height: 100px; bottom: 65%;}
     .container {height: 200px; width: 300px; margin-bottom: -5%;}
@@ -113,19 +113,23 @@ button {
 
 @media only screen and (max-height: 900px) {
     .container {bottom: 30%;}
-
     
 }
 
 @media only screen and (min-width: 768px) {
     .topcontainer {width: 768px;}
-
     
 }
 
 /* Showcase screen size (showcase laptop resolution, 1920 x 1080) */
 @media only screen and (min-width: 1920px) {
     .container {bottom: 35%;}
+    
+}
+
+@media only screen and (max-height: 1000px) and (min-height: 800px){
+    .container {bottom: 20%;}
+    .topcontainer {height: 100px; bottom:70%;}
 
     
 }
