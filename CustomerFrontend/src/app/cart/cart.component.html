@@ -1,0 +1,22 @@
+<mat-list>
+    <div mat-subheader>Your order</div>
+    <mat-list-item *ngFor="let item of itemData" class="mat-item">
+        <img matListAvatar src={{item.imageUrl}} alt="" />
+        <span class="mat-list-item-title">{{item.item}}</span>
+        <span class="mat-list-item-title">{{item.price}} €</span>
+        <span class="mat-list-item-title">
+            <button mat-raised-button (click)="minus(item.productId)">-</button>
+            {{item.amount}} pcs
+            <button mat-raised-button (click)="plus(item.productId)">+</button>
+        </span>
+        <span class="mat-list-item-title">
+            <button mat-fab color="warn" (click)="deleteBasketProduct(item.productId)">
+                <mat-icon>delete</mat-icon>
+            </button>
+        </span>
+    </mat-list-item>
+</mat-list>
+<mat-divider class="mat-divider"></mat-divider>
+
+Total: {{getTotal()}}
+<br>

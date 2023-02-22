@@ -33,12 +33,13 @@ export class LogincodeService {
   // asiakas koodin hakua varten
   getCustomerCode(e: any) {
     // kirjoitettu koodi saadaan tänne jos se täsmää oikeisiin
+    localStorage.setItem('customerCode', e);
     this.cust = e;
     console.log(this.cust);
   }
 
   // asiakas koodin lähetystä varten
   sendCustomerCode(): string {
-    return this.cust;
+    return localStorage.getItem('customerCode') ?? '';
   }
 }
