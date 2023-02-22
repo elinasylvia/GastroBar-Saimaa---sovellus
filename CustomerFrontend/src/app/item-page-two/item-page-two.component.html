@@ -8,6 +8,11 @@
             <h1>{{itemData.name}}</h1>
             <h2> {{itemData.price}}€, sis. alv {{itemData.alv}} %</h2>
             <h3 class="item-description">{{itemData.description}}</h3>
+            <span class="mat-list-item-title">
+                <button mat-raised-button (click)="minus(arvo)">-</button>
+                {{arvo}} pcs
+                <button mat-raised-button (click)="plus(arvo)">+</button>
+            </span>
         </mat-card-content>
         <mat-card-actions>
             <button mat-raised-button class="mat-raised-button"
