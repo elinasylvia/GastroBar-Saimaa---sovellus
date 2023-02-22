@@ -21,7 +21,7 @@ export class ProductService {
       new Product("", "assets/images/risotto.jpg", 15.90, "Sitruunarisotto", "4"),
     ];
     this.drinksArray = [
-      new Product("", "assets/images/beer.jpg", 6.9, "Olut", "1")
+      new Product("", "assets/images/beer.jpg", 6.9, "Olut", "2")
     ];
   }
 }
