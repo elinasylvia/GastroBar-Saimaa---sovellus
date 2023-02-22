@@ -1,4 +1,4 @@
-<h1>Pöydän numero: {{given}}</h1>
+<!--<h1>Pöydän numero: {{given}}</h1>
 
 <mat-card class="maincourse-card">
     <mat-card-header>
@@ -17,11 +17,7 @@
             </mat-form-field>
         </form>
 
-        <span class="mat-list-item-title">
-            <button mat-raised-button (click)="minus(arvo)">-</button>
-            {{arvo}} pcs
-            <button mat-raised-button (click)="plus(arvo)">+</button>
-        </span>
+
 
     </mat-card-content>
     <mat-card-actions>
@@ -31,4 +27,38 @@
             </span>
         </button>
     </mat-card-actions>
-</mat-card>
+</mat-card>-->
+
+<img src="../../assets/images/maincourse-view.jpg" class="bg-image">
+<div class="container">
+    <mat-card class="maincourse-card">
+        <mat-card-header>
+        </mat-card-header>
+        <img class="maincourse-img" mat-card-image src={{itemData.image}} alt="" />
+        <mat-card-content>
+            <h1>{{itemData.name}}</h1>
+            <h2> {{itemData.price}}€ / ateria, sis. alv {{itemData.alv}} %</h2>
+            <h3 class="item-description">{{itemData.description}}</h3>
+            <form class="example-form">
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Lisätoiveet</mat-label>
+                    <textarea matInput placeholder="Toiminto ei vielä käytössä"></textarea>
+                </mat-form-field>
+            </form>
+            
+            <span class="mat-list-item-title">
+            <button mat-raised-button (click)="minus(arvo)">-</button>
+            {{arvo}} pcs
+            <button mat-raised-button (click)="plus(arvo)">+</button>
+        </span>
+
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button class="mat-raised-button"
+                (click)="addItemToBasket(); $event.stopPropagation()"><span class="material-symbols-outlined">
+                    add_shopping_cart
+                </span>
+            </button>
+        </mat-card-actions>
+    </mat-card>
+</div>

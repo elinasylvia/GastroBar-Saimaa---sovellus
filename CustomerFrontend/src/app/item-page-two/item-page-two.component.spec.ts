@@ -2,15 +2,15 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ItemPageTwoComponent } from './item-page-two.component';
 
-describe('ItemPageTwoComponent', () => {
+describe('ItemPageOneComponent', () => {
   let component: ItemPageTwoComponent;
   let fixture: ComponentFixture<ItemPageTwoComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ItemPageTwoComponent ]
+      declarations: [ItemPageTwoComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(ItemPageTwoComponent);
     component = fixture.componentInstance;

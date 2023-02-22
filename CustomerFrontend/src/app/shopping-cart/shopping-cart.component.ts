@@ -55,6 +55,26 @@ export class ShoppingCartComponent implements OnInit {
   }
 
   // toimiva
+
+  // plus(id: number) {
+  //   let item = this.itemData.find(item => item.productId === id);
+  //   if (item) {
+  //     item.amount++;
+  //   }
+  // }
+  // minus(id: number) {
+  //   let item = this.itemData.find(item => item.productId === id);
+  //   if (item && item.amount > 0) {
+  //     item.amount--;
+  //   }
+  // }
+
+  // getTotal() {
+  //   return this.itemData
+  //     .map(item => item.amount * (item.price ?? 0))
+  //     .reduce((prev, curr) => prev + curr, 0);
+  // }
+
   deleteBasketProduct(id?: number): void {
     if (id == null) {
       return;
@@ -68,6 +88,22 @@ export class ShoppingCartComponent implements OnInit {
         this.reload();
       });
     }
+    
+    // if (confirm("Haluatko varmasti poistaa kohteen ")) {
+    //   let item = this.itemData.find(item => item.productId === id);
+    //   if (item) {
+    //     this.itemData.splice(this.itemData.indexOf(item), 1);
+    //   }
+    // }
+    // lähetetään nyt tällä tavoin tuo id:n arvo servicelle
+    // this.itemService.onSubmit(id);
+
+    // if (confirm("Haluatko varmasti poistaa kohteen ")) {
+    //   this.itemService.deleteById({ id: id }).subscribe((response: any) => {
+    //     // console.log(response);
+    //     this.reload();
+    //   });
+    // }
   }
 
   // PUT jokaiselle tuotteelle

@@ -37,8 +37,9 @@ export class ItemPageOneComponent implements OnInit {
     this.arvo = 0;
   }
 
+  addToCart(productId: string) { }
+
   ngOnInit(): void {
-    // lataa yksi tuote aina ngOnInitissä
     this.loadItem();
 
     // hae alussa annettu koodi

@@ -1,20 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { Basket } from '../api/models';
 import { ItemService } from '../services/item.service';
-import { LogincodeService } from '../services/logincode.service';
+import { Router } from "@angular/router"; // reititin nappuloita varten
+import { LogincodeService } from '../services/logincode.service'; // haetaan loginissa annettu koodi
+import { Basket } from '../api/models';
 
 @Component({
-  selector: 'app-item-page-two',
+  selector: 'app-item-page-one',
   templateUrl: './item-page-two.component.html',
   styleUrls: ['./item-page-two.component.css']
 })
 export class ItemPageTwoComponent implements OnInit {
+
   itemData: any;
 
   // mikä oli alussa annettu koodi
   given: any;
-  // customer number
   cust: string;
 
   stat: any;
@@ -27,16 +27,20 @@ export class ItemPageTwoComponent implements OnInit {
 
   constructor(public itemService: ItemService, public router: Router, public logincodeService: LogincodeService) {
     this.stat = "basket";
-    // hae alussa luotu asiakas koodi
-    this.cust = this.logincodeService.sendCustomerCode();
-  }
 
-  ngOnInit(): void {
+    // haetaan se asiakas koodi
+    this.cust = this.logincodeService.sendCustomerCode();
+    // hae alussa annettu koodi
+    this.given = this.logincodeService.getText();
     // lataa yksi tuote aina ngOnInitissä
     this.loadItem();
 
-    // hae alussa annettu koodi
-    this.given = this.logincodeService.getText();
+  }
+
+  addToCart(productId: string) { }
+
+  ngOnInit(): void {
+
   }
 
   // yhtä hakua varten
@@ -69,8 +73,8 @@ export class ItemPageTwoComponent implements OnInit {
     }
     this.itemService.create(basket).subscribe(() => {
       console.log('Basket saved');
-      this.router.navigate(['cart']);
+      // siirrytään seuraavaan tuotteeseen, kun kategoriat ei vielä projektissa
+      this.router.navigate(['item/2']);
     });
   }
 }
-

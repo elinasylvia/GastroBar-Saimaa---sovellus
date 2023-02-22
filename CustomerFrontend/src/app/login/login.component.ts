@@ -13,6 +13,7 @@ export class LoginComponent implements OnInit {
   registrationForm: FormGroup;
 
   constructor(public router: Router, public authService: AuthService) {
+    localStorage.clear();
     this.registrationForm = new FormGroup({
       email: new FormControl("gastrostaff@gmail.com", [
         Validators.required,

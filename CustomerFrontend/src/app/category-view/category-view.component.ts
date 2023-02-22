@@ -14,7 +14,9 @@ export class CategoryViewComponent implements OnInit {
   constructor(public router: Router) {
     this.categories = [
       new Category("assets/images/maincourse-view.jpg", "Pääruuat", 1, "pääruuat"),
-      new Category("assets/images/drinks.jpg", "Juomat", 2, "juomat")]
+      new Category("assets/images/drinks.jpg", "Juomat", 2, "juomat"),
+      new Category("assets/images/starters.jpg", "Alkuruuat", 3, "alkuruuat"),
+      new Category("assets/images/desserts.jpg", "Jälkiruuat", 4, "jälkiruuat"),]
   }
   selectCategory(id: number) {
     if (id === 1) {
