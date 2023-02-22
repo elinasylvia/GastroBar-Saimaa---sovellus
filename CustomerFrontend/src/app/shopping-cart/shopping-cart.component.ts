@@ -88,7 +88,7 @@ export class ShoppingCartComponent implements OnInit {
         this.reload();
       });
     }
-    
+
     // if (confirm("Haluatko varmasti poistaa kohteen ")) {
     //   let item = this.itemData.find(item => item.productId === id);
     //   if (item) {
@@ -164,12 +164,11 @@ export class ShoppingCartComponent implements OnInit {
     console.log(this.itemData);
 
     if (confirm("Haluatko varmasti lähettää tilauksen ")) {
-      localStorage.clear();
       this.ordersService.create(order).subscribe(() => {
         console.log('Order saved');
+        localStorage.clear();
         this.router.navigate(['staff-orders']);
-        // ehkä tää reload vois tulla tänne
-        // this.reload();
+        this.reload();
       });
     }
 
