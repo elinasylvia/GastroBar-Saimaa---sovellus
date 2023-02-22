@@ -28,7 +28,6 @@
     width: 800px;
     height: 110px;
     overflow: none;
-    
 }
 
 .container {
@@ -54,7 +53,7 @@ button {
     margin: auto;
     width: 25%;
     background-color: dodgerblue;
-    color:aliceblue;
+    color: aliceblue;
 }
 
 .form-group {

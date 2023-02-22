@@ -20,6 +20,7 @@ export class StaffOrdersComponent implements OnInit {
 
   current_date: Date = new Date();
 
+  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
 
   constructor(public ordersService: OrdersService) {
   }

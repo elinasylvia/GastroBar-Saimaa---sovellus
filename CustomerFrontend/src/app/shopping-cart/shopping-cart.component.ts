@@ -4,7 +4,7 @@ import { ItemService } from '../services/item.service';
 import { BasketsService } from '../api/services';
 import { OrdersService } from '../services/orders.service';
 import { Router } from "@angular/router"; // reititin nappuloita varten
-import { Order, Products, Basket, BasketDto } from '../api/models';
+import { Order, Products, Basket } from '../api/models';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -26,7 +26,6 @@ export class ShoppingCartComponent implements OnInit {
 
   arrLength: number;
 
-
   constructor(public router: Router, private ordersService: OrdersService, public logincodeService: LogincodeService, public itemService: ItemService, private basketsService: BasketsService) {
     // annettu koodi haetaan servicen kautta welcome komponentista
     this.given = this.logincodeService.getText();
@@ -40,6 +39,10 @@ export class ShoppingCartComponent implements OnInit {
     this.loadItems();
   }
 
+  orderMore(): void {
+    this.router.navigate(['categoryview']);
+  }
+
   // haetaan servicestä ja kannasta
   loadItems(): void {
     this.itemService.getTable()
@@ -47,11 +50,12 @@ export class ShoppingCartComponent implements OnInit {
       (data => {
         this.itemData = data;
         console.log(this.itemData);
-        this.itemData[0], this.itemData[1], this.itemData[2]
+        // this.itemData[0], this.itemData[1], this.itemData[2]
       });
   }
 
   // toimiva
+
   // plus(id: number) {
   //   let item = this.itemData.find(item => item.productId === id);
   //   if (item) {
@@ -75,7 +79,16 @@ export class ShoppingCartComponent implements OnInit {
     if (id == null) {
       return;
     }
+    // lähetetään nyt tällä tavoin tuo id:n arvo servicelle
+    this.itemService.onSubmit(id);
 
+    if (confirm("Haluatko varmasti poistaa kohteen ")) {
+      this.itemService.deleteById({ id: id }).subscribe((response: any) => {
+        // console.log(response);
+        this.reload();
+      });
+    }
+    
     // if (confirm("Haluatko varmasti poistaa kohteen ")) {
     //   let item = this.itemData.find(item => item.productId === id);
     //   if (item) {

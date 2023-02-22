@@ -1,3 +1,4 @@
+
 .container {
     display: flex;
     justify-content: center;
@@ -16,10 +17,7 @@
     max-width: 800px;
     display: flex;
     flex-direction: column;
-    padding: 4em;
-    top: 40px;
 }
-
 
 .card-container-right {
     display: inline;
@@ -33,6 +31,11 @@
 .mat-raised-button {
     background-color: dodgerblue;
     color: white;
+}
+
+.maincourse-header-image {
+    background-image: url('./../../assets/images/bostonburger.jpg');
+    background-size: cover;
 }
 
 .maincourse-img {

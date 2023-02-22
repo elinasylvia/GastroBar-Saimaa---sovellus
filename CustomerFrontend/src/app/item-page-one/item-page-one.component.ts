@@ -25,22 +25,29 @@ export class ItemPageOneComponent implements OnInit {
   // mihin saadaan inputin arvo
   inputValue: any;
 
+  // arvo amountille
+  arvo: any;
+
   constructor(public itemService: ItemService, public router: Router, public logincodeService: LogincodeService) {
     this.stat = "basket";
 
     // haetaan se asiakas koodi
     this.cust = this.logincodeService.sendCustomerCode();
-    // hae alussa annettu koodi
-    this.given = this.logincodeService.getText();
-    // lataa yksi tuote aina ngOnInitissä
-    this.loadItem();
 
+    this.arvo = 0;
   }
 
   addToCart(productId: string) { }
 
   ngOnInit(): void {
+    this.loadItem();
 
+    // hae alussa annettu koodi
+    this.given = this.logincodeService.getText();
+
+    // testausta
+    console.log(this.given);
+    console.log(this.cust);
   }
 
   // yhtä hakua varten
@@ -59,6 +66,19 @@ export class ItemPageOneComponent implements OnInit {
     this.inputValue = event.target.value;
   }
 
+  addToCart(productId: string) { }
+
+
+  // toimiva
+  plus(arv: number) {
+    arv = this.arvo++;
+  }
+
+  minus(arv: number) {
+    if (arv && this.arvo > 0)
+      arv = this.arvo--;
+  }
+
   // POST / lähetetään tuote ostoskoriin
   addItemToBasket(): void {
     console.log(this.inputValue);
@@ -67,14 +87,14 @@ export class ItemPageOneComponent implements OnInit {
       customerCode: this.cust,
       item: this.itemData.name,
       price: this.itemData.price,
-      amount: this.inputValue,
+      amount: this.arvo.toString(),
       orderTime: this.current_date.toISOString(),
       status: this.stat
     }
     this.itemService.create(basket).subscribe(() => {
       console.log('Basket saved');
       // siirrytään seuraavaan tuotteeseen, kun kategoriat ei vielä projektissa
-      this.router.navigate(['item/2']);
+      this.router.navigate(['cart']);
     });
   }
 }

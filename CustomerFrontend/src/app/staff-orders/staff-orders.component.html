@@ -1,21 +1,19 @@
 <div class="big-container">
-    <h1>Tilaukset</h1>
-    <p>get/orders/table/tablenumber</p>
-    <p>huom. haku tapahtuu pöytänumeron perusteella, ja missä status: open</p>
-
+    <h1>TILAUKSET / KEITTIÖ</h1>
     <hr>
 
     <!--1-->
     <h2>Pöytä 234</h2>
     <div class="container">
-        <table class="table table-bordered table-striped">
+        <table class="styled-table">
             <thead>
                 <tr>
                     <th>Id</th>
                     <th>Tablenumber</th>
-                    <th>Tilauksen Status</th>
+                    <th>Status</th>
                     <th>Aika</th>
                     <th>Tilaus</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -25,20 +23,21 @@
                     <td>{{item.status}}</td>
                     <td>{{item.orderTime | date:'d.M.y h:mm:ss a'}}</td>
 
+                    <hr id="hooar">
                     <span *ngFor="let orders of item.orders">
-                        <td>
+                        <td id="bigg">
                             <h3>Tuote</h3>{{orders.item}}
                         </td>
-                        <td>
+                        <td id="bigg">
                             <h3>Määrä</h3>{{orders.amount}} kpl
                         </td>
-                        <td>
+                        <td id="bigg">
                             <h3>Hinta</h3> {{orders.price}} €
                         </td>
                         <hr>
                     </span>
                     <hr id="hooar">
-                    <td><button mat-fab color="accent"
+                    <td><button mat-fab id="nappi"
                             (click)="updateOrderStatus(item.id)"><mat-icon>check</mat-icon></button></td>
                 </tr>
             </tbody>
@@ -48,14 +47,15 @@
     <!--2-->
     <h2>Pöytä 563</h2>
     <div class="container">
-        <table class="table table-bordered table-striped">
+        <table class="styled-table">
             <thead>
                 <tr>
                     <th>Id</th>
                     <th>Tablenumber</th>
-                    <th>Tilauksen Status</th>
+                    <th>Status</th>
                     <th>Aika</th>
                     <th>Tilaus</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -66,20 +66,20 @@
                     <td>{{item.orderTime | date:'d.M.y h:mm:ss a'}}</td>
 
                     <span *ngFor="let orders of item.orders">
-                        <td>
+                        <td id="bigg">
                             <h3>Tuote</h3>{{orders.item}}
                         </td>
-                        <td>
+                        <td id="bigg">
                             <h3>Määrä</h3>{{orders.amount}} kpl
                         </td>
-                        <td>
+                        <td id="bigg">
                             <h3>Hinta</h3> {{orders.price}} €
                         </td>
                         <hr>
                     </span>
                     <hr id="hooar">
                     <!--huom id:tä ei ole nyt täällä-->
-                    <td><button mat-fab color="accent"
+                    <td><button mat-fab id="nappi"
                             (click)="updateOrderStatusTableTwo(item.id)"><mat-icon>check</mat-icon></button></td>
                 </tr>
             </tbody>
@@ -89,14 +89,15 @@
     <!--3-->
     <h2>Pöytä 987</h2>
     <div class="container">
-        <table class="table table-bordered table-striped">
+        <table class="styled-table">
             <thead>
                 <tr>
                     <th>Id</th>
                     <th>Tablenumber</th>
-                    <th>Tilauksen Status</th>
+                    <th>Status</th>
                     <th>Aika</th>
                     <th>Tilaus</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -107,20 +108,20 @@
                     <td>{{item.orderTime | date:'d.M.y h:mm:ss a'}}</td>
 
                     <span *ngFor="let orders of item.orders">
-                        <td>
+                        <td id="bigg">
                             <h3>Tuote</h3>{{orders.item}}
                         </td>
-                        <td>
+                        <td id="bigg">
                             <h3>Määrä</h3>{{orders.amount}} kpl
                         </td>
-                        <td>
+                        <td id="bigg">
                             <h3>Hinta</h3> {{orders.price}} €
                         </td>
                         <hr>
                     </span>
                     <hr id="hooar">
                     <!--huom id:tä ei ole nyt täällä-->
-                    <td><button mat-fab color="accent"
+                    <td><button mat-fab id="nappi"
                             (click)="updateOrderStatusTableThree(item.id)"><mat-icon>check</mat-icon></button></td>
                 </tr>
             </tbody>
@@ -130,14 +131,15 @@
     <!--4-->
     <h2>Pöytä 796</h2>
     <div class="container">
-        <table class="table table-bordered table-striped">
+        <table class="styled-table">
             <thead>
                 <tr>
                     <th>Id</th>
                     <th>Tablenumber</th>
-                    <th>Tilauksen Status</th>
+                    <th>Status</th>
                     <th>Aika</th>
                     <th>Tilaus</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -148,20 +150,20 @@
                     <td>{{item.orderTime | date:'d.M.y h:mm:ss a'}}</td>
 
                     <span *ngFor="let orders of item.orders">
-                        <td>
+                        <td id="bigg">
                             <h3>Tuote</h3>{{orders.item}}
                         </td>
-                        <td>
+                        <td id="bigg">
                             <h3>Määrä</h3>{{orders.amount}} kpl
                         </td>
-                        <td>
+                        <td id="bigg">
                             <h3>Hinta</h3> {{orders.price}} €
                         </td>
                         <hr>
                     </span>
                     <hr id="hooar">
                     <!--huom id:tä ei ole nyt täällä-->
-                    <td><button mat-fab color="accent"
+                    <td><button mat-fab id="nappi"
                             (click)="updateOrderStatusTableFour(item.id)"><mat-icon>check</mat-icon></button></td>
                 </tr>
             </tbody>
