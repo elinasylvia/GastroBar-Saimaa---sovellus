@@ -167,11 +167,10 @@ export class ShoppingCartComponent implements OnInit {
       this.ordersService.create(order).subscribe(() => {
         console.log('Order saved');
         localStorage.clear();
-        this.router.navigate(['staff-orders']);
         this.reload();
+        this.router.navigate(['staff-orders']);
       });
     }
-
   }
 
 }
