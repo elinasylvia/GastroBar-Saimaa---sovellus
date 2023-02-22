@@ -66,9 +66,6 @@ export class ItemPageOneComponent implements OnInit {
     this.inputValue = event.target.value;
   }
 
-  addToCart(productId: string) { }
-
-
   // toimiva
   plus(arv: number) {
     arv = this.arvo++;
