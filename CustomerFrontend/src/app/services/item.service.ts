@@ -26,7 +26,7 @@ export class ItemService {
     this.url = "https://localhost:7011/api/items/";
 
     this.url2 = "https://localhost:7011/api/items/1";
-    this.url3 = "https://localhost:7011/api/items/3";
+    this.url3 = "https://localhost:7011/api/items/2";
 
     // jos haettaisiin pöytänumeron perusteella
     this.basketUrl = "https://localhost:7011/api/baskets/table/" + this.logincodeService.getText();
