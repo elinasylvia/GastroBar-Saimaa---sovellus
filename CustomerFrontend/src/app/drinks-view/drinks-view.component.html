@@ -1,4 +1,5 @@
-<mat-grid-list cols="2">
+<img src="../../assets/images/mainbg.jpg" class="bg-image">
+<mat-grid-list cols="2" rowHeight="1.5:1">
     <mat-grid-tile *ngFor="let product of products">
         <mat-card class="drinks-card" (click)="viewProduct(product.id)">
             <mat-card-header>
